@@ -79,7 +79,7 @@ theme: even
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/yaohwu/about.git
+  repo: https://github.com/yaohwu/notes.git
   branch: gh-pages
   name: yaohwu
   email: yaohwu@163.com

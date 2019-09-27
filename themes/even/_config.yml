@@ -19,8 +19,8 @@ rss: default
 menu:
   Home: /
   Archives: /archives/
-  # Tags: /tags
-  # Categories: /categories
+  Tags: /tags
+  Categories: /categories
   # About: /about
 
 # ===========================================
@@ -30,8 +30,8 @@ menu:
 # color: Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
 theme:
   color: Default
-  toc: false
-  fancybox: false
+  toc: true
+  fancybox: true
 
 copyright:
   enable: true
@@ -48,14 +48,14 @@ reward:
 # Social links Settings
 # ===========================================
 social:
-  email: your@email.com
+  email: yaohwu@163.com
   stack-overflow:
-  twitter:
+  twitter: https://twitter.com/yaohwu
   facebook:
   linkedin:
   google:
-  github:
-  weibo:
+  github: https://github.com/yaohwu
+  weibo: https://weibo.com/500856779
   zhihu:
   douban:
   pocket:

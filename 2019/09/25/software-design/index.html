@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="设计软件的思想和方式">
+
+
+
+
+  <meta name="keywords" content="design pattern, yaohwu">
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yaohwu">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0">
+
+
+
+<link rel="canonical" href="https://notes.yaohwu.xyz/2019/09/25/software-design/">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 设计软件的思想和方式 - yaohwu </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">yaohwu</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">yaohwu</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          设计软件的思想和方式
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-09-25
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#面向对象的-SOLID-原则"><span class="toc-text">面向对象的 SOLID 原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Single-responsibility-principle"><span class="toc-text">Single responsibility principle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Open–closed-principle"><span class="toc-text">Open–closed principle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Liskov-substitution-principle"><span class="toc-text">Liskov substitution principle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Interface-segregation-principle"><span class="toc-text">Interface segregation principle</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dependency-inversion-principle"><span class="toc-text">Dependency inversion principle</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#分门别类的学习设计模式"><span class="toc-text">分门别类的学习设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#抽象工厂模式-Abstract-Factory"><span class="toc-text">抽象工厂模式(Abstract Factory)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#建造者模式-Builder-Pattern"><span class="toc-text">建造者模式(Builder Pattern)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#适配器模式-Adapter-Pattern"><span class="toc-text">适配器模式(Adapter Pattern)</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>这篇文章大致讲一些设计软件使用的原则和思想，以及一些具体的模式。其实软件行业发展这么多年来，已经解决了大量的问题。本文讲的这些内容其实全是这些为了解决问题而发明的有效的方法。</p>
+<p>无论是适用广泛的 23 种设计模式，还是其他对于软件结构的抽象，其实类似这样的东西都能被叫做 Pattern。若干个 Pattern 组合起来，就构成了一个 Architecture。</p>
+<a id="more"></a>
+<h2 id="面向对象的-SOLID-原则"><a href="#面向对象的-SOLID-原则" class="headerlink" title="面向对象的 SOLID 原则"></a>面向对象的 SOLID 原则</h2><p>在讲 23 种设计模式之前，我们先来看看 SOLID 原则。</p>
+<p>其实在我之前的分享文章<a href="https://yaohwu.xyz/#/posts/9" target="_blank" rel="noopener">耦合和聚合以及软件设计的一些理论知识</a><br>中就已经提到过这些原则。在这边再详细展开说一下。</p>
+<h3 id="Single-responsibility-principle"><a href="#Single-responsibility-principle" class="headerlink" title="Single responsibility principle"></a>Single responsibility principle</h3><p>单一职责原则，认为对象应该具有单一职责的概念。每个类都应该有单一的职责，并且该职责由这个类完全封装起来。<br>这样的结构让这个类非常健壮，修改自己类的功能，不会影响到其他的功能。<br>比如，一个报表需要导出，那么就专门搞一个导出器类来完成导出这个功能，而不是放在报表这个类中，这样即使修改导出的功能，也不会影响报表其他功能的正常使用。</p>
+<h3 id="Open–closed-principle"><a href="#Open–closed-principle" class="headerlink" title="Open–closed principle"></a>Open–closed principle</h3><p>开闭原则，软件中的对象（类，模块，函数等等）应该对于扩展是开放的，对于修改是封闭的。这是一个非常重要的原则。对于这个原则，有两种理解：</p>
+<p>最初的理解：</p>
+<ol>
+<li>如果一个模块仍可以扩展，那么它是一个开放的模块。</li>
+<li>如果一个模块需要被其他模块使用，那么这个模块必须已经包含已定义好的稳定的描述，这些描述将不再可被修改。</li>
+<li>如果需要将一个模块的功能进行重新修改，那么可以通过继承的方式，可以重用已有的实现。</li>
+</ol>
+<p>后续的理解，也就是现在被大家接受的理解：</p>
+<ol>
+<li>使用抽象的接口。</li>
+<li>接口的实现是可以被修改的，并且可以通过多态在多种实现间实现替换。</li>
+<li>由于继承自抽象接口，因此接口规范可以被重用，但是不能重用实现。</li>
+<li>接口是不可以修改的，但是新的实现必须要实现这个接口。</li>
+</ol>
+<p>旧理解，强调更多的是一个稳定的已定义好的默认实现；新理解，强调更多的是一个稳定的已定义好的抽象接口。</p>
+<p>例如还是拿报表的导出来说，我们在设计导出逻辑时，使用的是一个抽象的导出接口，可以没有任何实现，然后可以提供一种导出器比如导出 xlsx 作为一个默认的实现。当我们要做扩展的时候，应该要去重新实现抽象的导出接口，而不是继承已有的 xlsx 导出器做修改，当然更不是直接修改 xlsx 导出器。这样新的导出器实现只是依赖导出器接口，而不是依赖默认的导出器，避免默认导出器修改时被影响，也就是面向接口编程。</p>
+<h3 id="Liskov-substitution-principle"><a href="#Liskov-substitution-principle" class="headerlink" title="Liskov substitution principle"></a>Liskov substitution principle</h3><p>里氏替换原则，在不改变程序正确性的同时，任何对象都可以由其子类型对象替换。</p>
+<p><code>Let q(x) be a property provable about objects x of type T. Then q(y) should be true for objects y of type S where S is a subtype of T.</code></p>
+<p>里氏替换原则有至少以下两种含义：</p>
+<ol>
+<li>里氏替换原则是针对继承而言的，如果继承是为了实现代码重用，也就是为了共享方法，那么共享的父类方法就应该保持不变，不能被子类重新定义。子类只能通过新添加方法来扩展功能，父类和子类都可以实例化，而子类继承的方法和父类是一样的，父类调用方法的地方，子类也可以调用同一个继承得来的，逻辑和父类一致的方法，这时用子类对象将父类对象替换掉时，当然逻辑一致，相安无事。</li>
+<li>如果继承的目的是为了多态，而多态的前提就是子类覆盖并重新定义父类的方法，为了符合 LSP，我们应该将父类定义为抽象类，并定义抽象方法，让子类重新定义这些方法，当父类是抽象类时，父类就是不能实例化的，所以也不存在可实例化的父类对象在程序里。也就不存在子类替换父类实例（根本不存在父类实例了）时逻辑不一致的可能。</li>
+</ol>
+<p>不符合 LSP 的最常见的情况是，父类和子类都是可实例化的非抽象类，且父类的方法被子类重新定义，这一类的实现继承会造成父类和子类间的强耦合，也就是实际上并不相关的属性和方法牵强附会在一起，不利于程序扩展和维护。</p>
+<p>尽量不要从可实例化的父类中继承，而是要使用基于抽象类和接口的继承。</p>
+<p><code>正方形不是长方形。</code></p>
+<h3 id="Interface-segregation-principle"><a href="#Interface-segregation-principle" class="headerlink" title="Interface segregation principle"></a>Interface segregation principle</h3><p>接口隔离原则，多个特定客户端的接口要优于一个通用的接口。</p>
+<ol>
+<li>客户端客户端不应该依赖他不需要的接口；不依赖不需要的接口，降低耦合；</li>
+<li>类见的依赖关系应该建立在最小的接口上；最小也不是无限制最小，而是达到要求的最小的接口，提高内聚。</li>
+</ol>
+<h3 id="Dependency-inversion-principle"><a href="#Dependency-inversion-principle" class="headerlink" title="Dependency inversion principle"></a>Dependency inversion principle</h3><p>依赖反转原则。</p>
+<ol>
+<li>高层次的模块不应该依赖于低层次的模块，两者都应该依赖于抽象接口；降低层与层之间的耦合。</li>
+<li>抽象接口不应该依赖于具体实现。而具体实现则应该依赖于抽象接口；面向接口编程。</li>
+</ol>
+<p>由 Resource 依赖 Store 变成 Resource 依赖 StoreProvider，Store 实现 StoreProvider。</p>
+<h2 id="分门别类的学习设计模式"><a href="#分门别类的学习设计模式" class="headerlink" title="分门别类的学习设计模式"></a>分门别类的学习设计模式</h2><p>经过上述的学习，我们已经知道，这些原则都是前辈总结出来的使得软件清晰可读以及可扩展时可以应用的指南，都是一个思想，具体在代码中怎么运用还需要我们面对实际情况去灵活运用。<br>那么，设计模式就是更细层面上指导我们运用的细则。虽然说是细则，但是在不同的业务及需求背景下，也会有更灵活的运用，写出的代码可能不是任何设计模式的一种。<br>所以，还是要明确一点的是，我们学东西，重要的是学 idea，次要的是学 technique。我们通过学习更细层次上的设计模式，来将比较抽象难理解的 SOLID 原则搞懂，来学习如何合理的组织我们的代码，如何解耦，如何真正的达到对修改封闭对扩展开放的效果，让我们的代码更符合上面提到的面向对象的 SOLID 原则或者一些其他原则。我们是怀着这样的目的去学习设计模式的，而不是为了去背诵这些模式。</p>
+<p>为了合理的利用设计模式，我们应该明白一个概念，叫做扩展点。扩展点不是天生就有的，而是设计出来的。我们设计一个软件的架构的时候，我们也要同时设计一下哪些地方以后可以改，哪些地方以后不能改。倘若你的设计不能满足现实世界的需要，那你就要重构，把有用的扩展点加进去，把没用的扩展点去除掉。</p>
+<p>学习完设计模式我们要达成什么目标呢？假如看到一个代码结构，我们应该能：</p>
+<ol>
+<li>讲出这个结构的代码有何优劣；</li>
+<li>讲出符合哪些 SOLID 原则；</li>
+<li>讲出扩展点在什么地方，如何扩展；</li>
+<li>更厉害的是，如果需求向不同的方向变更，应该怎么将这段代码修改成一个更符合需求变更方向的结构。</li>
+</ol>
+<p>如果能达成这个目标，那么我们的学习就是非常成功的。</p>
+<h3 id="抽象工厂模式-Abstract-Factory"><a href="#抽象工厂模式-Abstract-Factory" class="headerlink" title="抽象工厂模式(Abstract Factory)"></a>抽象工厂模式(Abstract Factory)</h3><p>todo</p>
+<h3 id="建造者模式-Builder-Pattern"><a href="#建造者模式-Builder-Pattern" class="headerlink" title="建造者模式(Builder Pattern)"></a>建造者模式(Builder Pattern)</h3><p>todo</p>
+<h3 id="适配器模式-Adapter-Pattern"><a href="#适配器模式-Adapter-Pattern" class="headerlink" title="适配器模式(Adapter Pattern)"></a>适配器模式(Adapter Pattern)</h3><p>todo</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://notes.yaohwu.xyz">yaohwu</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://notes.yaohwu.xyz/2019/09/25/software-design/">https://notes.yaohwu.xyz/2019/09/25/software-design/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/design-pattern/">design pattern</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/10/27/read-The-Habits-of-Highly-Effective-People/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">高效能人士的七个习惯阅读笔记</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/08/14/how-to-use-java-generic/">
+        <span class="next-text nav-default">泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:yaohwu@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/yaohwu" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/yaohwu" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+        
+          <a href="https://weibo.com/500856779" class="iconfont icon-weibo" title="weibo"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">yaohwu</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://notes.yaohwu.xyz/2019/09/25/software-design/';
+        this.page.identifier = '2019/09/25/software-design/';
+        this.page.title = '设计软件的思想和方式';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//yaohwu-xyz.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

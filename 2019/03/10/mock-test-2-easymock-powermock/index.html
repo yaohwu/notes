@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang>
+  <head><meta name="generator" content="Hexo 3.9.0">
+    
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+<meta name="theme-color" content="#f8f5ec">
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="mock-test 2 EasyMock & PowerMock">
+
+
+
+
+  <meta name="keywords" content="unit-test, yaohwu">
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yaohwu">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0">
+
+
+
+<link rel="canonical" href="https://notes.yaohwu.xyz/2019/03/10/mock-test-2-easymock-powermock/">
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0">
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css">
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> mock-test 2 EasyMock & PowerMock - yaohwu </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">yaohwu</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            标签
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            分类
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">yaohwu</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              标签
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              分类
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          mock-test 2 EasyMock & PowerMock
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-03-10
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-EasyMock"><span class="toc-text">1.EasyMock</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mock"><span class="toc-text">mock</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#mock-的方式"><span class="toc-text">mock 的方式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mock-的策略"><span class="toc-text">mock 的策略</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#局部-mock"><span class="toc-text">局部 mock</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意"><span class="toc-text">注意</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#expect"><span class="toc-text">expect</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#andStubXXX"><span class="toc-text">andStubXXX</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参数匹配"><span class="toc-text">参数匹配</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#自定义参数匹配器"><span class="toc-text">自定义参数匹配器</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#andAnswer-和-andDelegateTo"><span class="toc-text">andAnswer() 和 andDelegateTo()</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#verify"><span class="toc-text">verify</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#reset"><span class="toc-text">reset()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PowerMock"><span class="toc-text">PowerMock</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#mock-static"><span class="toc-text">mock static</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#common-mock-static"><span class="toc-text">common mock static</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#mock-partial-static-or-private-method"><span class="toc-text">mock partial static or private method</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mock-final"><span class="toc-text">mock final</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mock-private"><span class="toc-text">mock private</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#一些-Mock-技巧"><span class="toc-text">一些 Mock 技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#SuppressStaticInitializationFor-“xxx-xxx-xxx”-和-suppress-策略"><span class="toc-text">@SuppressStaticInitializationFor(“xxx.xxx.xxx”) 和 suppress 策略</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#其他的-suppress-场景"><span class="toc-text">其他的 suppress 场景</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#PowerMockIgnore"><span class="toc-text">@PowerMockIgnore</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#结尾"><span class="toc-text">结尾</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>从遇到的问题出发，反向总结一下这段时间写单元测试的一些方法。</p>
+<a id="more"></a>
+<h2 id="1-EasyMock"><a href="#1-EasyMock" class="headerlink" title="1.EasyMock"></a>1.EasyMock</h2><p>EasyMock 主要也就分 mock expect replay 和 verify 这四个过程。</p>
+<h3 id="mock"><a href="#mock" class="headerlink" title="mock"></a>mock</h3><h4 id="mock-的方式"><a href="#mock-的方式" class="headerlink" title="mock 的方式"></a>mock 的方式</h4><ul>
+<li>在方法中直接 mock</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 在方法中直接mock</span></span><br><span class="line">    Singer defaultSinger = EasyMock.mock(Singer.class);</span><br><span class="line">    Singer strictSinger = EasyMock.strictMock(Singer.class);</span><br><span class="line">    Singer niceSinger = EasyMock.niceMock(Singer.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用注解</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(EasyMockRunner.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Main</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 使用注解</span></span><br><span class="line">    <span class="meta">@Mock</span>(MockType.STRICT)</span><br><span class="line">    <span class="keyword">private</span> Singer strictSingerAnnotation;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Mock</span>(MockType.NICE)</span><br><span class="line">    <span class="keyword">private</span> Singer niceSingerAnnotation;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Mock</span></span><br><span class="line">    <span class="keyword">private</span> Singer defaultSingerAnnotation;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>使用注解处理一些依赖注入</strong>，例如：<br>被测试类 VocalConcert 里面依赖了一个 Singer 类。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VocalConcert</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Singer singer;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">VocalConcert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">show</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (singer != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Vocal Concert Show: "</span> + singer.show();</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"Vocal Concert Show: ..."</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>那么，这样写就可以直接将 mock 得到的 defaultMockSinger 注入到 concert 当中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(EasyMockRunner.class)</span><br><span class="line"><span class="comment">// 或者是 @RunWith(PowerMockRunner.class) 都可以</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VocalConcertTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TestSubject</span></span><br><span class="line">    <span class="keyword">private</span> VocalConcert concert = <span class="keyword">new</span> VocalConcert();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Mock</span></span><br><span class="line">    <span class="keyword">private</span> Singer defaultMockSinger;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testVocalConcert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        EasyMock.expect(defaultMockSinger.show()).andReturn(<span class="string">"defaultMockSinger show"</span>).anyTimes();</span><br><span class="line"></span><br><span class="line">        EasyMock.replay(defaultMockSinger);</span><br><span class="line"></span><br><span class="line">        System.out.println(concert.show());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果想使用默认的 test runner，那么可以采用</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VocalConcertTest3</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Rule</span></span><br><span class="line">    <span class="keyword">public</span> EasyMockRule mocks = <span class="keyword">new</span> EasyMockRule(<span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">    <span class="meta">@TestSubject</span></span><br><span class="line">    <span class="keyword">private</span> VocalConcert concert = <span class="keyword">new</span> VocalConcert();</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Mock</span></span><br><span class="line">    <span class="keyword">private</span> Singer defaultMockSinger;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testVocalConcert</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        EasyMock.expect(defaultMockSinger.show()).andReturn(<span class="string">"defaultMockSinger show"</span>).anyTimes();</span><br><span class="line"></span><br><span class="line">        EasyMock.replay(defaultMockSinger);</span><br><span class="line"></span><br><span class="line">        System.out.println(concert.show());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="mock-的策略"><a href="#mock-的策略" class="headerlink" title="mock 的策略"></a>mock 的策略</h4><ul>
+<li>default</li>
+</ul>
+<p>默认策略，使用 Easy.mock(XXX.class) 或者 @Mock 注解；</p>
+<p>不介意方法是否按照 expect 的顺序进行调用，verify <strong>会</strong>针对所有期望被调用但是实际上没有调用的方法抛出异常。</p>
+<ul>
+<li>strict</li>
+</ul>
+<p>strict 策略，使用 Easy.strictMock(XXX.class) 或者 @Mock(MockType.STRICT) 注解；</p>
+<p>相比 default 的方式，这种更为严格，所有调用的方法需要严格按照 expect 的顺序进行调用，否则会抛出异常；verify 也<strong>会</strong>针对所有期望被调用但是实际上没有调用的方法抛出异常。</p>
+<ul>
+<li>nice</li>
+</ul>
+<p>nice 策略，使用 EasyMock.niceMock(Nice.class) 或者 @Mock(MockType.NICE) 注解；</p>
+<p>相比 default 的方式，这种更为宽松，不介意调用顺序和次数，verify <strong>不会</strong>针对所有期望被调用但是实际上没有调用的方法抛出异常。同时，针对未期望的方法调用不会像 default 或者 strict 那样抛出 AssertionError 错误，而是返回对应的空值 0，null 或者 false。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(EasyMockRunner.class)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingerTest2</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Mock</span></span><br><span class="line">    <span class="keyword">private</span> Singer defaultSinger;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Mock</span>(MockType.STRICT)</span><br><span class="line">    <span class="keyword">private</span> Singer strictSinger;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Mock</span>(MockType.NICE)</span><br><span class="line">    <span class="keyword">private</span> Singer niceSinger;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// default</span></span><br><span class="line">        EasyMock.expect(defaultSinger.getName()).andReturn(<span class="string">"yaohwu"</span>).once();</span><br><span class="line">        EasyMock.expect(defaultSinger.getBirthday()).andReturn(<span class="keyword">new</span> Date()).once();</span><br><span class="line">        EasyMock.expect(defaultSinger.getName()).andReturn(<span class="string">"new yaohwu"</span>).once();</span><br><span class="line"></span><br><span class="line">        EasyMock.replay(defaultSinger);</span><br><span class="line"></span><br><span class="line">        System.out.println(defaultSinger.getBirthday());</span><br><span class="line">        System.out.println(defaultSinger.getName());</span><br><span class="line">        System.out.println(defaultSinger.getName());</span><br><span class="line"></span><br><span class="line">        EasyMock.verify(defaultSinger);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// strict</span></span><br><span class="line">        EasyMock.expect(strictSinger.getName()).andReturn(<span class="string">"yaohwu"</span>).once();</span><br><span class="line">        EasyMock.expect(strictSinger.getBirthday()).andReturn(<span class="keyword">new</span> Date()).once();</span><br><span class="line">        EasyMock.expect(strictSinger.getName()).andReturn(<span class="string">"new yaohwu"</span>).once();</span><br><span class="line"></span><br><span class="line">        EasyMock.replay(strictSinger);</span><br><span class="line"></span><br><span class="line">        System.out.println(strictSinger.getName());</span><br><span class="line">        System.out.println(strictSinger.getBirthday());</span><br><span class="line">        System.out.println(strictSinger.getName());</span><br><span class="line"></span><br><span class="line">        EasyMock.verify(strictSinger);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// nice</span></span><br><span class="line">        EasyMock.expect(niceSinger.getName()).andReturn(<span class="string">"yaohwu"</span>).once();</span><br><span class="line">        <span class="comment">//EasyMock.expect(niceSinger.getBirthday()).andReturn(new Date()).once();</span></span><br><span class="line">        <span class="comment">//EasyMock.expect(niceSinger.getName()).andReturn("new yaohwu").once();</span></span><br><span class="line"></span><br><span class="line">        EasyMock.replay(niceSinger);</span><br><span class="line"></span><br><span class="line">        System.out.println(niceSinger.getBirthday());</span><br><span class="line">        System.out.println(niceSinger.getName());</span><br><span class="line">        System.out.println(niceSinger.getName());</span><br><span class="line"></span><br><span class="line">        EasyMock.verify(niceSinger);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="局部-mock"><a href="#局部-mock" class="headerlink" title="局部 mock"></a>局部 mock</h4><p>部分场景下，只希望 mock 部分方法，针对其余的方法希望能保留默认行为。这种场景一般是由于设计不好，如果非得局部 mock 也可以。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingerTest3</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        Singer singer =</span><br><span class="line">                EasyMock.partialMockBuilder(Singer.class)</span><br><span class="line">                        .addMockedMethod(<span class="string">"getName"</span>)</span><br><span class="line">                        .createMock();</span><br><span class="line"></span><br><span class="line">        EasyMock.expect(singer.getName()).andReturn(<span class="string">"yaohwu"</span>);</span><br><span class="line">        EasyMock.replay(singer);</span><br><span class="line"></span><br><span class="line">        System.out.println(singer.getName());</span><br><span class="line">        Assert.assertNull(singer.getBirthday());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><ol>
+<li>EasyMock 不能 mock final 和 private 的方法，即使 mock 了，实际执行的还是默认的行为；</li>
+<li>对象实例化是通过 <a href="http://objenesis.org/" target="_blank" rel="noopener">objenesis</a> 做到的，和我们的 rpc 反序列化时获取实例策略是一样的，<strong>不会触发任何执行任何构造方法</strong>，因此类中的变量不会被初始化。</li>
+</ol>
+<h3 id="expect"><a href="#expect" class="headerlink" title="expect"></a>expect</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestMain</span></span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">        Singer defaultSinger = EasyMock.mock(Singer.class);</span><br><span class="line">        <span class="comment">// 对存在返回值的方法进行录制</span></span><br><span class="line">        EasyMock.expect(defaultSinger.show()).andReturn(<span class="string">"fff"</span>).once();</span><br><span class="line">        EasyMock.expect(defaultSinger.getName()).andReturn(<span class="string">"b"</span>).once();</span><br><span class="line">        <span class="comment">// 对没有返回值的方法进行录制</span></span><br><span class="line">        defaultSinger.setName(<span class="string">"c"</span>);</span><br><span class="line">        EasyMock.expectLastCall()</span><br><span class="line">                .andThrow(<span class="keyword">new</span> RuntimeException(<span class="string">"Error Cannot Reset Name"</span>)).once()</span><br><span class="line">                .andVoid().once()</span><br><span class="line">                .andThrow(<span class="keyword">new</span> RuntimeException(<span class="string">"Error Cannot Reset Name For More Times"</span>)).anyTimes();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>times andReturn andThrow 是可以被链式调用的，并且可以是多组组合使用</li>
+</ul>
+<p>因此要注意顺序，一般情况，andReturn() 或者 andThrow() 在前，times() 放在最后。</p>
+<h4 id="andStubXXX"><a href="#andStubXXX" class="headerlink" title="andStubXXX"></a>andStubXXX</h4><p>上面使用的 expect 是我们期望进行的录制并希望参与 verify 的，假设部分方法，我们也希望他们对调用做出反应，同时也不在乎他们何时何地被调用多少次，那么可以使用 andStub 开头的方法。</p>
+<p>`</p>
+<p>EasyMock.expect(defaultMockSinger.getName()).andStubReturn(“”);<br>EasyMock.expect(defaultMockSinger.getBirthday()).andStubThrow(new RuntimeException(“Error e”));<br>`</p>
+<h4 id="参数匹配"><a href="#参数匹配" class="headerlink" title="参数匹配"></a>参数匹配</h4><p>`</p>
+<p>EasyMock.expect(dictionary.get(EasyMock.eq(1001L), EasyMock.anyObject(Calculator.class)))<br>        .andReturn(“J”).anyTimes();<br>`</p>
+<p>有时候，我们并不确认实际调用的参数是什么或者说实际上的参数是一个范围，那么我们就可以用到参数匹配。</p>
+<p>EasyMock 中提供了多种多样的线程的方法来供我们使用。</p>
+<p>需要注意的是，<strong>被调用方法的参数要么全部使用确定的值，要么全部使用参数匹配器</strong>，不能出现下面这种场景。</p>
+<p>`</p>
+<p>EasyMock.expect(dictionary.get(1000L, EasyMock.anyObject(Calculator.class)))<br>        .andReturn(“J”).anyTimes();<br>`</p>
+<h5 id="自定义参数匹配器"><a href="#自定义参数匹配器" class="headerlink" title="自定义参数匹配器"></a>自定义参数匹配器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EasyMock</span></span>&#123;</span><br><span class="line">    <span class="comment">// EasyMock.endsWith() 的实现</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> String <span class="title">endsWith</span><span class="params">(String suffix)</span> </span>&#123;</span><br><span class="line">            reportMatcher(<span class="keyword">new</span> EndsWith(suffix));</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EndsWith</span> <span class="keyword">implements</span> <span class="title">IArgumentMatcher</span>, <span class="title">Serializable</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">long</span> serialVersionUID = <span class="number">5159338714596685067L</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String suffix;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EndsWith</span><span class="params">(String suffix)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.suffix = suffix;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 匹配规则</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">matches</span><span class="params">(Object actual)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (actual <span class="keyword">instanceof</span> String) &amp;&amp; ((String) actual).endsWith(suffix);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 不匹配时的输出信息</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">appendTo</span><span class="params">(StringBuffer buffer)</span> </span>&#123;</span><br><span class="line">        buffer.append(<span class="string">"endsWith(\""</span> + suffix + <span class="string">"\")"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="andAnswer-和-andDelegateTo"><a href="#andAnswer-和-andDelegateTo" class="headerlink" title="andAnswer() 和 andDelegateTo()"></a>andAnswer() 和 andDelegateTo()</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// todo 我没怎么用到，等用到了再补充</span></span><br></pre></td></tr></table></figure>
+<h2 id="verify"><a href="#verify" class="headerlink" title="verify"></a>verify</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="comment">// 录制</span></span><br><span class="line">        expect();</span><br><span class="line">        <span class="comment">// 设定未回放状态</span></span><br><span class="line">        replay();</span><br><span class="line">        <span class="comment">// 调用业务逻辑进行测试</span></span><br><span class="line">        test();</span><br><span class="line">        <span class="comment">// 验证录制的方法调用的 times() 是否符合预期，如果和预期不符合，会抛出异常显示多或者少</span></span><br><span class="line">        verrify();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="reset"><a href="#reset" class="headerlink" title="reset()"></a>reset()</h3><p>mock 对象是可以被重用的，使用 reset 方法，让他变回起初的“白纸”状态。<br>还可以通过 reset 修改策略。<br>resetToNice(mock), resetToDefault(mock), resetToStrict(mock).</p>
+<h2 id="PowerMock"><a href="#PowerMock" class="headerlink" title="PowerMock"></a>PowerMock</h2><p>PowerMock 也有和 Mockito 配合的 api, 这里就不关注了，主要说和 EasyMock 配合的。</p>
+<p>PowerMock is a Java framework that allows you to unit test code normally regarded as untestable.</p>
+<p>处理 EasyMock 不能处理的 mock 场景。</p>
+<h3 id="mock-static"><a href="#mock-static" class="headerlink" title="mock static"></a>mock static</h3><h4 id="common-mock-static"><a href="#common-mock-static" class="headerlink" title="common mock static"></a>common mock static</h4><ol>
+<li>类上加注解 @RunWith(PowerMockRunner.class)</li>
+<li>类上加注解 @PrepareForTest(ClassThatContainsStaticMethod.class)</li>
+<li>mock PowerMock.mockStatic(ClassThatContainsStaticMethod.class)</li>
+<li>expect EasyMock.expect(ClassThatContainsStaticMethod.xxx())</li>
+<li>replay PowerMock.replay(ClassThatContainsStaticMethod.class)</li>
+<li>verify PowerMock.verify(ClassThatContainsStaticMethod.class)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(PowerMockRunner.class)</span><br><span class="line"><span class="meta">@PrepareForTest</span>(&#123;GeneralContext.class&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JavaScriptImplTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> JavaScriptImpl script;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> RepositoryDeal repositoryDeal;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Before</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Before</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        script = <span class="keyword">new</span> JavaScriptImpl();</span><br><span class="line">        script.setContent(<span class="string">"console.log('a')"</span>);</span><br><span class="line">        script.setParameters(<span class="keyword">new</span> ParameterProvider[]&#123;<span class="keyword">new</span> Parameter(<span class="string">"p1"</span>, <span class="string">"中文!+"</span>)&#125;);</span><br><span class="line">        script.addJSImort(<span class="string">"imported.js"</span>);</span><br><span class="line"></span><br><span class="line">        repositoryDeal = EasyMock.mock(RepositoryDeal.class);</span><br><span class="line">        EasyMock.replay(repositoryDeal);</span><br><span class="line"></span><br><span class="line">        PowerMock.mockStatic(GeneralContext.class);</span><br><span class="line">        EasyMock.expect(GeneralContext.getCurrentAppNameOfEnv()).andReturn(<span class="string">"webroot"</span>).anyTimes();</span><br><span class="line">        GeneralContext.listenPluginRunningChanged(EasyMock.anyObject(PluginEventListener.class));</span><br><span class="line">        EasyMock.expectLastCall().anyTimes();</span><br><span class="line">        GeneralContext.listenPlugin(</span><br><span class="line">                EasyMock.eq(PluginEventType.AfterStop), EasyMock.anyObject(PluginEventListener.class), EasyMock.anyObject(PluginFilter.class));</span><br><span class="line">        EasyMock.expectLastCall().anyTimes();</span><br><span class="line"></span><br><span class="line">        PowerMock.replayAll();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCreateJS</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// do xxx</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>注意，PowerMock 的 replayAll 并不会触发 EasyMock 的 replay(xxx) 因此还是要分开调用，EasyMock 只是负责给 PowerMock mock 的对象预设行为，replay 和 verify PowerMock 和 EasyMock 两者还是各走各的。</li>
+</ul>
+<h4 id="mock-partial-static-or-private-method"><a href="#mock-partial-static-or-private-method" class="headerlink" title="mock partial static or private method"></a>mock partial static or private method</h4><p>如下的代码中就只是 mock 了  <strong>MimeUtility</strong> 其中的两个方法。<br>其中 <strong>getDefaultMIMECharset</strong> 不是一个 <strong>public</strong> 的方法。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// ....</span></span><br><span class="line">PowerMock.mockStaticPartial(MimeUtility.class, <span class="string">"getDefaultJavaCharset"</span>, <span class="string">"getDefaultMIMECharset"</span>);</span><br><span class="line">EasyMock.expect(MimeUtility.getDefaultJavaCharset()).andAnswer(<span class="keyword">new</span> IAnswer&lt;String&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">answer</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"GBK"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).once().andAnswer(<span class="keyword">new</span> IAnswer&lt;String&gt;() &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">answer</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"UTF-8"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;).once();</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    PowerMock.expectPrivate(MimeUtility.class, <span class="string">"getDefaultMIMECharset"</span>).andAnswer(<span class="keyword">new</span> IAnswer&lt;String&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">answer</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"GBK"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).once().andAnswer(<span class="keyword">new</span> IAnswer&lt;String&gt;() &#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> String <span class="title">answer</span><span class="params">()</span> <span class="keyword">throws</span> Throwable </span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"UTF-8"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;).once();</span><br><span class="line">&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">    Assert.fail(e.getMessage());</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// ...</span></span><br></pre></td></tr></table></figure>
+<h3 id="mock-final"><a href="#mock-final" class="headerlink" title="mock final"></a>mock final</h3><p>和 mock static 一样<br>区别仅在于 <code>PowerMock.mockStatic</code> 和 <code>PowerMock.createMock</code>；</p>
+<h3 id="mock-private"><a href="#mock-private" class="headerlink" title="mock private"></a>mock private</h3><p>用到的不多，如果出现这样的单元测试，优先考虑是不是设计上有问题或者有没有通过 public 方法的单元测试覆盖到的方法。</p>
+<p>如果实在需要，可以参考<a href="https://github.com/powermock/powermock/wiki/MockPrivate" target="_blank" rel="noopener">MockPrivate</a>。</p>
+<h3 id="一些-Mock-技巧"><a href="#一些-Mock-技巧" class="headerlink" title="一些 Mock 技巧"></a>一些 Mock 技巧</h3><h4 id="SuppressStaticInitializationFor-“xxx-xxx-xxx”-和-suppress-策略"><a href="#SuppressStaticInitializationFor-“xxx-xxx-xxx”-和-suppress-策略" class="headerlink" title="@SuppressStaticInitializationFor(“xxx.xxx.xxx”) 和 suppress 策略"></a>@SuppressStaticInitializationFor(“xxx.xxx.xxx”) 和 suppress 策略</h4><p>假设单元测试用到了一个其他类的静态方法，但是这个类的初始化中做了很多单元测试不感知的工作，例如可能读取了授权证书等等。<br>这时候如果使用 powermock 对静态方法进行 mock 会触发这些初始化操作，但是由于相应的模块没有启动，这些初始化可能会失败，导致 mock 不了。</p>
+<p>例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SessionManager</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Service service = OtherModuleService.getService();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        authenticateLicense();</span><br><span class="line">        doSomethingSpecialDependsOnOtherModule();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果有这样的场景，可以使用 @SuppressStaticInitializationFor(“xxx.xxx.xxx”) 注解。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(PowerMockRunner.class)</span><br><span class="line"><span class="meta">@SuppressStaticInitializationFor</span>(<span class="string">"com.xx.SessionManager"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Manager</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> List&lt;Record&gt; RECORDS = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"Manager Init"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(PowerMockRunner.class)</span><br><span class="line"><span class="meta">@PrepareForTest</span>(&#123;Manager.class&#125;)</span><br><span class="line"><span class="comment">//@SuppressStaticInitializationFor("com.v2.yaohwu.gov.Manager")</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ManagerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        List expected = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        PowerMock.mockStatic(Manager.class);</span><br><span class="line">        EasyMock.expect(Manager.getAllRecord()).andReturn(expected).anyTimes();</span><br><span class="line"></span><br><span class="line">        PowerMock.replayAll();</span><br><span class="line">        List result = Manager.getAllRecord();</span><br><span class="line">        System.out.println(result.size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Manager Init</span><br><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>如果放开@SuppressStaticInitializationFor(“com.v2.yaohwu.gov.Manager”) 的注释，那么输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0</span><br></pre></td></tr></table></figure>
+<p>@SuppressStaticInitializationFor 可以阻止静态变量的声明以及静态代码块的运行。</p>
+<p>如果需要部分变量初始化，那么可以使用 WhiteBox 的 api 对变量进行赋值 例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(PowerMockRunner.class)</span><br><span class="line"><span class="meta">@PrepareForTest</span>(&#123;Manager.class&#125;)</span><br><span class="line"><span class="meta">@SuppressStaticInitializationFor</span>(<span class="string">"com.v2.yaohwu.gov.Manager"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ManagerTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 正常测试</span></span><br><span class="line">        List expected = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        PowerMock.mockStatic(Manager.class);</span><br><span class="line">        <span class="comment">//noinspection unchecked</span></span><br><span class="line">        EasyMock.expect(Manager.getAllRecord()).andReturn(expected).anyTimes();</span><br><span class="line"></span><br><span class="line">        PowerMock.replayAll();</span><br><span class="line">        List result = Manager.getAllRecord();</span><br><span class="line">        System.out.println(result.size());</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 获取变量 RECORDS 的值</span></span><br><span class="line">        System.out.println((String) Whitebox.getInternalState(Manager.class, <span class="string">"RECORDS"</span>));</span><br><span class="line">        <span class="comment">// 输出 null SuppressStaticInitializationFor 注解阻止了 RECORDS 的初始化</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">// 对 Manager 中的私有变量进行赋值</span></span><br><span class="line">        List expected2 = <span class="keyword">new</span> ArrayList();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 私有变量 RECORDS 中加入 一个 Manager 私有内部类 Record 的一个实例</span></span><br><span class="line">            <span class="comment">//noinspection unchecked</span></span><br><span class="line">            expected2.add(Whitebox.newInstance(Whitebox.getInnerClassType(Manager.class, <span class="string">"Record"</span>)));</span><br><span class="line">        &#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">            Assert.fail(e.getMessage());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 将变量 RECORDS 赋值</span></span><br><span class="line">        Whitebox.setInternalState(Manager.class, <span class="string">"RECORDS"</span>, expected2);</span><br><span class="line">        <span class="comment">// 获取变量 RECORDS 的值</span></span><br><span class="line">        System.out.println(((List) Whitebox.getInternalState(Manager.class, <span class="string">"RECORDS"</span>)).size());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="其他的-suppress-场景"><a href="#其他的-suppress-场景" class="headerlink" title="其他的 suppress 场景"></a>其他的 suppress 场景</h5><ol>
+<li>suppress(constructor(XXX.class)) 处理构造函数</li>
+<li>suppress(method(XXX.class, “methodName”)) 处理方法</li>
+<li>suppress(field(XXX.class, “fieldName”)) 处理变量</li>
+</ol>
+<p>以上都要和 @PrepareForTest(XXX.class) 配合使用。<a href="https://github.com/powermock/powermock/wiki/Suppress-Unwanted-Behavior" target="_blank" rel="noopener">link</a></p>
+<h4 id="PowerMockIgnore"><a href="#PowerMockIgnore" class="headerlink" title="@PowerMockIgnore"></a>@PowerMockIgnore</h4><p>PowerMock 采用自定义类加载器的方式加载被测试类，如果出现类型转换异常或者类加载器形式的错误，那么可以使用 @PowerMockIgnore 注解，让 PowerMock 从系统类加载器中获取类。</p>
+<p>出现的类型转换异常：</p>
+<p><code>xxx.xxx.xxx.xxx cannot be cast to xxx.xxx.xxxProvider</code></p>
+<p>也不仅仅局限于这个异常，如果你看到你一个不能解决的异常，其中有 package name 的信息，那么可以尝试使用 <strong>@PowerMockIgnore</strong>。</p>
+<p>一般这些类有 “javax.crypto.*“,”javax.net.ssl.*“,”sun.security.ssl.*“ 等。</p>
+<p>使用方式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith</span>(PowerMockRunner.class)</span><br><span class="line"><span class="meta">@PowerMockIgnore</span>(&#123;<span class="string">"javax.crypto.*"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">XXXTest</span> </span>&#123;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>参考文档</p>
+<ul>
+<li><a href="http://easymock.org/" target="_blank" rel="noopener">easymock</a></li>
+<li><a href="https://github.com/powermock/powermock/wiki" target="_blank" rel="noopener">powermock</a></li>
+<li><a href="https://github.com/powermock/powermock/wiki/FAQ" target="_blank" rel="noopener">powermock QA</a></li>
+</ul>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://notes.yaohwu.xyz">yaohwu</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://notes.yaohwu.xyz/2019/03/10/mock-test-2-easymock-powermock/">https://notes.yaohwu.xyz/2019/03/10/mock-test-2-easymock-powermock/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/unit-test/">unit-test</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/08/14/how-to-use-java-generic/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/2019/01/31/hello-world/">
+        <span class="next-text nav-default">Hello World</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:yaohwu@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/yaohwu" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/yaohwu" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+        
+          <a href="https://weibo.com/500856779" class="iconfont icon-weibo" title="weibo"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">yaohwu</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://notes.yaohwu.xyz/2019/03/10/mock-test-2-easymock-powermock/';
+        this.page.identifier = '2019/03/10/mock-test-2-easymock-powermock/';
+        this.page.title = 'mock-test 2 EasyMock & PowerMock';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//yaohwu-xyz.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

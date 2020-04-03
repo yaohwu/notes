@@ -2,3 +2,13 @@
 // Custom style
 // ==============================
 // You can override the variables in _variables.scss to customize the style
+@mixin theme-html() {
+    @if $theme-color-config=='Grieve Grey' {
+        html {
+            -webkit-filter: grayscale(95%);
+            -webkit-filter: grayscale(0.95);
+            filter: grayscale(95%);
+            filter: gray;
+        }
+    }
+}

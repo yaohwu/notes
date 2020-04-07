@@ -368,12 +368,6 @@ html {
   font-size: 16px;
   box-sizing: border-box; }
 
-html {
-  -webkit-filter: grayscale(95%);
-  -webkit-filter: grayscale(0.95);
-  filter: grayscale(95%);
-  filter: gray; }
-
 body {
   padding: 0;
   margin: 0;

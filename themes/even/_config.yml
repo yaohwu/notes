@@ -29,8 +29,8 @@ menu:
 # theme styling
 # color: Default | Mint Green | Cobalt Blue | Hot Pink | Dark Violet
 theme:
-  # color: Default
-  color: Grieve Grey
+  color: Default
+  # color: Grieve Grey
   toc: true
   fancybox: true
 

@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="web security"/>
+
+
+
+
+  <meta name="keywords" content="security, yaohwu" />
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="yaohwu" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://notes.yaohwu.xyz/2018/09/13/web-security/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.6.0" />
+
+
+
+  <link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+
+
+  
+
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> web security - yaohwu </title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">yaohwu</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/">
+        <li class="mobile-menu-item">
+          
+          
+            Home
+          
+        </li>
+      </a>
+    
+      <a href="/archives/">
+        <li class="mobile-menu-item">
+          
+          
+            Archives
+          
+        </li>
+      </a>
+    
+      <a href="/tags">
+        <li class="mobile-menu-item">
+          
+          
+            Tags
+          
+        </li>
+      </a>
+    
+      <a href="/categories">
+        <li class="mobile-menu-item">
+          
+          
+            Categories
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">yaohwu</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/">
+            
+            
+              Home
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            
+            
+              Archives
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/tags">
+            
+            
+              Tags
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/categories">
+            
+            
+              Categories
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          web security
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-09-13
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#web-%E5%AE%89%E5%85%A8"><span class="toc-text">web 安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#XSS-Cross-Site-Scripting-%E6%94%BB%E5%87%BB"><span class="toc-text">XSS(Cross Site Scripting) 攻击</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%88%90%E5%8A%9F%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-text">成功的条件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-text">分类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#XSS-%E9%98%B2%E8%8C%83%E6%96%B9%E6%B3%95"><span class="toc-text">XSS 防范方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSRF-Cross%E2%80%94Site-Request-Forgery"><span class="toc-text">CSRF (Cross—Site Request Forgery)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%9F%E7%90%86"><span class="toc-text">原理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#CSRF-%E9%98%B2%E8%8C%83%E6%96%B9%E6%B3%95"><span class="toc-text">CSRF 防范方法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#SQL-%E6%B3%A8%E5%85%A5"><span class="toc-text">SQL 注入</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sql-%E6%B3%A8%E5%85%A5%E9%98%B2%E8%8C%83"><span class="toc-text">sql 注入防范</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash-DoS-Denial-of-Service"><span class="toc-text">hash DoS (Denial of Service)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#DDoS"><span class="toc-text">DDoS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DDoS%E7%9A%84%E6%A6%82%E5%BF%B5%E5%92%8C%E5%8F%91%E5%B1%95"><span class="toc-text">DDoS的概念和发展</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8B%92%E7%BB%9D%E6%9C%8D%E5%8A%A1"><span class="toc-text">拒绝服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F"><span class="toc-text">分布式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%83%B5%E5%B0%B8%E7%BD%91%E7%BB%9C-%E8%82%89%E9%B8%A1"><span class="toc-text">僵尸网络 肉鸡</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DDoS%E7%9A%84%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F"><span class="toc-text">DDoS的攻击方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DDoS%E9%98%B2%E8%8C%83"><span class="toc-text">DDoS防范</span></a></li></ol></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>安全涉及的领域很广泛，有 web 安全、DDoS 攻防、用户隐私、加密解密、数据安全、授权和认证等等，很多。</p>
+<p>可以逐一学习。</p>
+<p>今天我们主要讲一下 web 安全 顺带了解一下 DDoS 防范。（因为这个比较好找资料，准备的有些仓促。</p>
+<span id="more"></span>
+
+<h2 id="web-安全"><a href="#web-安全" class="headerlink" title="web 安全"></a>web 安全</h2><h3 id="XSS-Cross-Site-Scripting-攻击"><a href="#XSS-Cross-Site-Scripting-攻击" class="headerlink" title="XSS(Cross Site Scripting) 攻击"></a>XSS(Cross Site Scripting) 攻击</h3><p>通过对网页注入可执行代码且成功地被浏览器执行，达到攻击的目的。</p>
+<h4 id="成功的条件"><a href="#成功的条件" class="headerlink" title="成功的条件"></a>成功的条件</h4><ol>
+<li>需要向web页面注入恶意代码</li>
+<li>恶意代码被浏览器执行</li>
+</ol>
+<h4 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h4><p>依据攻击效果可以分为两类，</p>
+<ul>
+<li>反射性攻击</li>
+</ul>
+<p>恶意代码并没有保存在目标网站，通过引诱用户点击一个链接到目标网站的恶意链接来实施攻击的。</p>
+<p>比如：</p>
+<p><img src="https://user-images.githubusercontent.com/9320666/45463544-32542c80-b73f-11e8-9a4e-1bd48b160b90.png" alt="xssreflect"></p>
+<ul>
+<li>存储型攻击</li>
+</ul>
+<p>恶意代码被保存到目标网站的服务器中，这种攻击具有较强的稳定性和持久性。</p>
+<p>例如 bbs 发帖，中插入了脚本，查看这个帖子就可能执行恶意脚本。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.baidu.com/img/bd_logo1.png?where=super&amp;id=&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- id= imageid&quot;/&gt;&lt;script&gt;alert(/xss/)&lt;/script&gt;&lt;br x=&quot; --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://www.baidu.com/img/bd_logo1.png?where=super&amp;id=&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript">alert(<span class="regexp">/xsst2/</span>)</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span><span class="tag">&lt;<span class="name">br</span> <span class="attr">x</span>=<span class="string">&quot;&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="XSS-防范方法"><a href="#XSS-防范方法" class="headerlink" title="XSS 防范方法"></a>XSS 防范方法</h4><ol>
+<li><p>针对反射性攻击，可以在表单提交或者 url 传递参数之前，对参数进行过滤。</p>
+</li>
+<li><p>针对存储型攻击，控制用户输入的输出，可以采用白名单的方法使用合法的标签显示，过滤掉非法的字符。</p>
+</li>
+</ol>
+<h3 id="CSRF-Cross—Site-Request-Forgery"><a href="#CSRF-Cross—Site-Request-Forgery" class="headerlink" title="CSRF (Cross—Site Request Forgery)"></a>CSRF (Cross—Site Request Forgery)</h3><p>既跨站点请求伪造，也被叫做 XSRF，和 XSS 一样也是一种比较常见的 web 攻击。CSRF攻击者会过过构造的第三方页面诱导受害者完成加载或者点击，利用受害者的权限，以其身份向合法网站发起恶意请求，通常用户发生状态改变的请求，比如虚拟货币的转账，账号信息修改，恶意发邮件等等，由于具有一定的隐蔽性，所以比较难以防范。</p>
+<h4 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h4><p><img src="https://user-images.githubusercontent.com/9320666/45463565-4861ed00-b73f-11e8-8272-6bb0fcbd9bf6.png" alt="csrf"></p>
+<p>例如，转账的请求为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">get http://xxxbank.com/transfer.do?from=rommel&amp;to=alice&amp;amount=100 HTTP/1.1</span><br></pre></td></tr></table></figure>
+
+<p>CSRF 的攻击过程过程图上图所示：</p>
+<ol>
+<li>CSRF 攻击有一个前提条件，是用户具有某个正常访问的访问权限。一般网站的访问权限都具备一定的有效期，比如1天过期，或者几个小时过期，在此期间权限信息会保留在用户浏览器的 cookie 中，例子中假设用户C刚刚登录了网站A，权限还没有过期。</li>
+<li>攻击者利用正常网站 A 的 CSFR 漏洞，构造页面一个恶意网页 B，在页面中包含对发往正常网站 A 的请求，在用户 C 加载页面 B（或者点击某些元素时触发）时，会触发攻击请求，目的是为了实现虚拟币的转账，请求可能隐藏得很深，用户并不一定能发现，伪造的请求如下：</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">widht</span>=<span class="string">0</span> <span class="attr">height</span>=<span class="string">0</span> <span class="attr">src</span>=<span class="string">&quot;http://xxxbank.com/transfer.do?from=rommel&amp;to=attacker&amp;amount=100&quot;</span> /&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="CSRF-防范方法"><a href="#CSRF-防范方法" class="headerlink" title="CSRF 防范方法"></a>CSRF 防范方法</h4><ol>
+<li>添加 Referer 域名白名单：HTTP 的 Referer 头记录了当前请求的来源页面的URL，如果用户是通过浏览器打开的网页一般都会带有这个信息。可以验证 URL 的域名是否在网站允许的白名单内，如果不在则拒绝请求。这种方式实现比较简单，而且可以在 web 服务器层统一配置，减少了后端开发成本，但是 Referer 域可以伪造，用户浏览器的可靠性也不能完全信赖，判断 Referer 可以做为一种辅助手段，但不能根治 CSRF。</li>
+<li>令牌 (Token) 验证：令牌验证的方式，这是目前方法CSRF的一种普遍方法，其原理是在用户正式提交数据更新之前，给用户生成一个 token，一方面 token 保存在服务端，比如 Session 或者缓存中，一方面用户提交请求时连同 token 一同提交，服务获得接收到请求之后再做 token 验证，token 不存在、或者token不一致，或者失效都算作验证失败。token 的生成具有一定的随机性，攻击者往往很难伪造。token 一般作为一个 post 字段提交，或者作为 ajax 请求的 header 信息提交。</li>
+<li>二次验证：对于一些敏感操作，比如对涉及到交易操作的控制更加严格一些。在用户提交时可以让用户输入验证码，或者再次输入交易密码，确保是用户的真实操作，而不是机器触发的。</li>
+<li>SameSite Cookie 属性 <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/HTTP_cookie">Http cookie</a></li>
+</ol>
+<h3 id="SQL-注入"><a href="#SQL-注入" class="headerlink" title="SQL 注入"></a>SQL 注入</h3><p>利用后端程序的漏洞，针对数据库进行攻击。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username <span class="operator">=</span> &quot;$username&quot; <span class="keyword">AND</span> password <span class="operator">=</span> &quot;$password&quot;;</span><br></pre></td></tr></table></figure>
+
+<p>如果攻击者设定了一个 password = anywords” OR 1=1 的密码，那么执行的 sql 就变成了</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username <span class="operator">=</span> &quot;xxx&quot; <span class="keyword">AND</span> password <span class="operator">=</span> &quot;anywords&quot; <span class="keyword">OR</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果 构造密码为 password anywords” OR 1=1;DROP TABLE users ，那么 users 表都会被删除。</p>
+<p><img src="https://user-images.githubusercontent.com/9320666/45463573-557edc00-b73f-11e8-8990-51c6d45c7f7e.jpg" alt="&#39;上古&#39;时代，网络上流传的搞笑图片" title="&#39;上古&#39;时代，网络上流传的搞笑图片"></p>
+<h3 id="sql-注入防范"><a href="#sql-注入防范" class="headerlink" title="sql 注入防范"></a>sql 注入防范</h3><ul>
+<li>预编译sql</li>
+</ul>
+<p>预编译 sql 的原理：</p>
+<ol>
+<li>基本解析：包括SQL语句的语法、语义解析，以及对应的表和列是否存在等等。</li>
+<li>编译：将 SQL 语句编译成机器理解客理解的中间代码格式。</li>
+<li>查询优化：编译器在所有的执行方案中选择一个最优的。</li>
+<li>缓存：缓存优化后的执行方案。</li>
+<li>执行阶段：执行最终查询方案并返回给用户数据。</li>
+</ol>
+<p>预编译语句指的是在缓存之后，在执行阶段的之前的编译后的语句，通过占位符来替代查询查询参数。同样的SQL，如果参数不同普通的SQL语句每次请求都会进行编译，而预编译语句只会编译一次，在执行阶段会从缓存中取出预编译语句并将占位符替换成查询参数数据，而在这个阶段SQL 语句已经是编译后的语句，参数数据只能最为纯数据使用，不能作为SQL语句的一部分，通过SQL字符串的拼装已经不起作用，所以可以避免SQL注入。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">String query = <span class="string">&quot;SELECT * FROM users WHERE username = ? AND password = ?&quot;</span>;</span><br><span class="line">PreparedStatement pstmt = connection.prepareStatement( query );</span><br><span class="line">pstmt.setString( <span class="number">1</span>, username);</span><br><span class="line">pstmt.setString( <span class="number">2</span>, password);</span><br><span class="line">ResultSet results = pstmt.executeQuery( );</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>交给 ORM 框架</li>
+</ul>
+<h3 id="hash-DoS-Denial-of-Service"><a href="#hash-DoS-Denial-of-Service" class="headerlink" title="hash DoS (Denial of Service)"></a>hash DoS (Denial of Service)</h3><p>我们都知道，哈希表 是一个 O(1) 的数据结构，对于其中的任意元素=可以在一个与哈希表长度无关的时间内计算出一个哈希值（key），然后在常量时间内定位到一个bucket，找到改元素。</p>
+<p>这是理想的情况，但是存在不同的数据项，具有相同的 hash 值，这是就会发生 hash 碰撞。</p>
+<p>哈希表的实现需要解决碰撞问题，碰撞解决大体有两种思路，第一种是根据某种原则将被碰撞数据定为到其它桶，例如线性探测——如果数据在插入时发生了碰撞，则顺序查找这个桶后面的桶，将其放入第一个没有被使用的桶；第二种策略是每个桶不是一个只能容纳单个数据项的位置，而是一个可容纳多个数据的数据结构（例如链表或红黑树），所有碰撞的数据以某种数据结构的形式组织起来。</p>
+<p>不论使用了哪种碰撞解决策略，都导致插入和查找操作的时间复杂度不再是 O(1)。以查找为例，不能通过key定位到桶就结束，必须还要比较原始key（即未做哈希之前的key）是否相等，如果不相等，则要使用与插入相同的算法继续查找，直到找到匹配的值或确认数据不在哈希表中。</p>
+<p>哈希表碰撞攻击就是通过精心构造数据，使得所有数据全部碰撞，人为将哈希表变成一个退化的单链表，此时哈希表各种操作的时间均提升了一个数量级，因此会消耗大量CPU资源，导致系统无法快速响应请求，从而达到拒绝服务攻击（DoS）的目的。</p>
+<p>web 应用 大多会使用json作为数据传递的方式，在服务端拿到 json 字符串后，都会将 json 字符串转换成 json 对象，json 对象大多都是基于 hashmap 或者 hashtable 做的，因此只要能够导致 hash 碰撞，然后结合一个较大的 json 对象，就能将 hashmap 的性能降低到极致，拖垮cpu，从而达到 DoS 的目的。</p>
+<h2 id="DDoS"><a href="#DDoS" class="headerlink" title="DDoS"></a>DDoS</h2><h3 id="DDoS的概念和发展"><a href="#DDoS的概念和发展" class="headerlink" title="DDoS的概念和发展"></a>DDoS的概念和发展</h3><h4 id="拒绝服务"><a href="#拒绝服务" class="headerlink" title="拒绝服务"></a>拒绝服务</h4><p>其实可以简单理解为：让一个公开网站无法访问。要达到这个目的的方法也很简单：不断地提出服务请求，让合法用户的请求无法及时处理。</p>
+<h4 id="分布式"><a href="#分布式" class="headerlink" title="分布式"></a>分布式</h4><p>其实随着网络发展，很多大型企业具备较强的服务提供能力，所以应付单个请求的攻击已经不是问题。道高一尺，魔高一丈，于是乎攻击者就组织很多同伙，同时提出服务请求，直到服务无法访问，这就叫“分布式”。但是在现实中，一般的攻击者无法组织各地伙伴协同“作战”，所以会使用“僵尸网络”来控制N多计算机进行攻击。</p>
+<h4 id="僵尸网络-肉鸡"><a href="#僵尸网络-肉鸡" class="headerlink" title="僵尸网络 肉鸡"></a>僵尸网络 肉鸡</h4><p>就是数量庞大的僵尸程序(Bot)通过一定方式组合，出于恶意目的，采用一对多的方式进行控制的大型网络，也可以说是一种复合性攻击方式。因为僵尸主机的数量很大而且分布广泛，所以危害程度和防御难度都很大。</p>
+<p>僵尸网络具备高可控性，控制者可以在发布指令之后，就断开与僵尸网络的连接，而控制指令会自动在僵尸程序间传播执行。</p>
+<p>这就像个生态系统一样，对于安全研究人员来说，通过捕获一个节点可以发现此僵尸网络的许多僵尸主机，但很难窥其全貌，而且即便封杀一些僵尸主机，也不会影响整个僵尸网络的生存。</p>
+<h3 id="DDoS的攻击方式"><a href="#DDoS的攻击方式" class="headerlink" title="DDoS的攻击方式"></a>DDoS的攻击方式</h3><p>分布式拒绝服务攻击的精髓是：利用分布式的客户端，向目标发起大量看上去合法的请求，消耗或者占用大量资源，从而达到拒绝服务的目的。</p>
+<p>其主要攻击方法有4种：</p>
+<ul>
+<li>攻击带宽</li>
+</ul>
+<p>当网络数据包的数量达到或者超过上限的时候，会出现网络拥堵、响应缓慢的情况。DDoS就是利用这个原理，发送大量网络数据包，占满被攻击目标的全部带宽，从而造成正常请求失效，达到拒绝服务的目的。</p>
+<p>攻击者可以使用ICM泛洪(即发送大量ICMP相关报文)、或者UDP泛洪(即发送用户数据报协议的大包或小包)，使用伪造源IP地址方式进行隐匿，并对网络造成拥堵和服务器响应速度变慢等影响。</p>
+<p>但是这种直接方式通常依靠受控主机本身的网络性能，所以效果不是很好，还容易被查到攻击源头。于是反射攻击就出现，攻击者使用特殊的数据包，也就是IP地址指向作为反射器的服务器，源IP地址被伪造成攻击目标的IP，反射器接收到数据包的时候就被骗了，会将响应数据发送给被攻击目标，然后就会耗尽目标网络的带宽资源。</p>
+<ul>
+<li>攻击系统</li>
+</ul>
+<p>创建TCP连接需要客户端与服务器进行三次交互，也就是常说的“三次握手”。这个信息通常被保存在连接表结构中，但是表的大小有限，所以当超过了存储量，服务器就无法创建新的TCP连接了。</p>
+<p>攻击者就是利用这一点，用受控主机建立大量恶意的TCP连接，占满被攻击目标的连接表，使其无法接受新的TCP连接请求。如果攻击者发送了大量的TCP SYN报文，使服务器在短时间内产生大量的半开连接，连接表也会被很快占满，导致无法建立新的TCP连接，这个方式是SYN洪水攻击，很多攻击者都比较常用。</p>
+<ul>
+<li>攻击应用</li>
+</ul>
+<p>由于DNS和Web服务的广泛性和重要性，这两种服务就成为了消耗应用资源的分布式拒绝服务攻击的主要目标。</p>
+<p>比如向DNS服务器发送大量查询请求，从而达到拒绝服务的效果，如果每一个DNS解析请求所查询的域名都是不同的，那么就有效避开服务器缓存的解析记录，达到更好的资源消耗效果。当DNS服务的可用性受到威胁，互联网上大量的设备都会受到影响而无法正常使用。</p>
+<p>近些年，Web技术发展非常迅速，如果攻击者利用大量的受控主机不断地向Web服务器恶意发送大量HTTP请求，要求Web服务器处理，就会完全占用服务器资源，让正常用户的Web访问请求得不到处理，导致拒绝服务。一旦Web服务受到这种攻击，就会对其承载的业务造成致命的影响。</p>
+<ul>
+<li>混合攻击</li>
+</ul>
+<p>在实际的生活中，乖哦概念记者并不关心自己使用的哪种攻击方法管用，只要能够达到目的，一般就会发动其所有的攻击手段，尽其所能的展开攻势。对于被攻击目标来说，需要面对不同的协议、不同资源的分布式拒绝服务攻击，分析、响应和处理的成本就会大大增加。</p>
+<p>随着僵尸网络向着小型化的趋势发展，为降低攻击成本，有效隐藏攻击源，躲避安全设备，同时保证攻击效果，针对应用层的小流量慢速攻击已经逐步发展壮大起来。因此，从另一个角度来说，DDoS攻击方面目前主要是两个方面：UDP及反射式大流量高速攻击、和多协议小流量及慢速攻击。</p>
+<h3 id="DDoS防范"><a href="#DDoS防范" class="headerlink" title="DDoS防范"></a>DDoS防范</h3><ol>
+<li>高性能设备</li>
+<li>提高带宽</li>
+<li>异常流量清洗</li>
+<li>分布式防御</li>
+</ol>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://notes.yaohwu.xyz">yaohwu</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://notes.yaohwu.xyz/2018/09/13/web-security/">https://notes.yaohwu.xyz/2018/09/13/web-security/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+          <div class="post-tags">
+            
+              <a href="/tags/security/">security</a>
+            
+          </div>
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/2019/01/31/hello-world/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Hello World</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    
+    
+      <a class="next" href="/2018/08/23/low-coupling-and-high-cohesion-and-others/">
+        <span class="next-text nav-default">耦合和聚合以及软件设计的一些理论知识</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+        
+          <a href="mailto:yaohwu@163.com" class="iconfont icon-email" title="email"></a>
+        
+      
+    
+      
+    
+      
+        
+          <a target="_blank" rel="noopener" href="https://twitter.com/yaohwu" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a target="_blank" rel="noopener" href="https://github.com/yaohwu" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+        
+          <a target="_blank" rel="noopener" href="https://weibo.com/500856779" class="iconfont icon-weibo" title="weibo"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2021
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">yaohwu</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://notes.yaohwu.xyz/2018/09/13/web-security/';
+        this.page.identifier = '2018/09/13/web-security/';
+        this.page.title = 'web security';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//yaohwu-xyz.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+  
+
+
+
+
+
+  
+    <script type="text/javascript" src="/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  
+
+
+    <script type="text/javascript" src="/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

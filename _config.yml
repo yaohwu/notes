@@ -104,7 +104,7 @@ theme: even
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/yaohwu/notes.git
+  repo: git@github.com:yaohwu/notes.git
   branch: gh-pages
   name: yaohwu
   email: yaohwu@163.com

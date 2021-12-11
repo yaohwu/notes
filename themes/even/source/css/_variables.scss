@@ -4,23 +4,24 @@
 
 // ========== Theme Color ========== //
 // Theme color config from `even/_config.yml`
-$theme-color-config: hexo-theme-config('theme.color');
+$theme-color-config: to-lower-case(hexo-theme-config('color'));
 
 // Default theme color map
 $theme-color-map: (
-  'Default': #c05b4d #f8f5ec,
-  'Mint Green': #16982B #f5f5f5,
-  'Cobalt Blue': #0047AB #f0f2f5,
-  'Hot Pink': #FF69B4 #f8f5f5,
-  'Dark Violet': #9932CC #f5f4fa,
-  'Grieve Grey': #c05b4d #f8f5ec
+        'default': #c05b4d #f8f5ec,
+        'mint green': #16982B #f5f5f5,
+        'cobalt blue': #0047AB #f0f2f5,
+        'hot pink': #FF69B4 #f8f5f5,
+        'dark violet': #9932CC #f5f4fa,
+        'grieve grey': #c05b4d #f8f5ec
 );
 
 // Check theme color config.
 // if it does not exist, use default theme color.
 @if not(map-has-key($theme-color-map, $theme-color-config)) {
-  $theme-color-config: 'Default';
+  $theme-color-config: 'default';
 }
+
 $theme-color-list: map-get($theme-color-map, $theme-color-config);
 
 // Default theme color of the site.
@@ -28,7 +29,6 @@ $theme-color: nth($theme-color-list, 1) !default;
 
 // Deputy theme color of the site.
 $deputy-color: nth($theme-color-list, 2) !default;
-
 
 // ========== Color ========== //
 $black: #0a0a0a !default;
@@ -65,12 +65,12 @@ $global-background: $white !default;
 
 // Headings font size of the site.
 $global-headings: (
-  h1: 26px,
-  h2: 24px,
-  h3: 20px,
-  h4: 16px,
-  h5: 14px,
-  h6: 14px
+        h1: 26px,
+        h2: 24px,
+        h3: 20px,
+        h4: 16px,
+        h5: 14px,
+        h6: 14px
 ) !default;
 
 
@@ -197,38 +197,39 @@ $code-font-family: Consolas, Monaco, Menlo, Consolas, monospace !default;
 
 // Color of code highlight, solarized.
 $code-highlight-color: (
-  comment: #93a1a1,
-  keyword: #859900,
-  number: #2aa198,
-  title: #268bd2,
-  attribute: #b58900,
-  symbol: #cb4b16,
-  built_in: #dc322f
+        comment: #93a1a1,
+        keyword: #859900,
+        number: #2aa198,
+        title: #268bd2,
+        attribute: #b58900,
+        symbol: #cb4b16,
+        built_in: #dc322f
 ) !default;
 
 // Code type list.
 $code-type-list: (
-  html: "HTML",
-  js: "JavaScript",
-  bash: "Bash",
-  css: "CSS",
-  scss: "Scss",
-  java: "Java",
-  xml: "XML",
-  python: "Python",
-  json: "JSON",
-  swift: "Swift",
-  ruby: "Ruby",
-  php: "PHP",
-  c: "C",
-  cpp: "C++",
-  scheme: "Scheme",
-  objectivec: "Objective-C",
-  yml: "YAML",
-  stylus: "Stylus",
-  sql: "SQL",
-  http: "HTTP",
-  go: "Go"
+        html: "HTML",
+        js: "JavaScript",
+        bash: "Bash",
+        css: "CSS",
+        scss: "Scss",
+        java: "Java",
+        xml: "XML",
+        python: "Python",
+        json: "JSON",
+        swift: "Swift",
+        ruby: "Ruby",
+        php: "PHP",
+        c: "C",
+        cpp: "C++",
+        scheme: "Scheme",
+        objectivec: "Objective-C",
+        yml: "YAML",
+        stylus: "Stylus",
+        sql: "SQL",
+        http: "HTTP",
+        go: "Go",
+        kotlin: "Kotlin"
 ) !default;
 
 // Color of the code background.

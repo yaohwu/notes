@@ -6,7 +6,7 @@
   <link href="https://notes.yaohwu.xyz/atom.xml" rel="self"/>
   
   <link href="https://notes.yaohwu.xyz/"/>
-  <updated>2021-12-15T15:09:51.587Z</updated>
+  <updated>2022-01-13T02:55:29.120Z</updated>
   <id>https://notes.yaohwu.xyz/</id>
   
   <author>
@@ -15,6 +15,25 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>how-to-make-a-decision</title>
+    <link href="https://notes.yaohwu.xyz/2022/01/12/how-to-make-a-decision/"/>
+    <id>https://notes.yaohwu.xyz/2022/01/12/how-to-make-a-decision/</id>
+    <published>2022-01-12T11:05:48.000Z</published>
+    <updated>2022-01-13T02:55:29.120Z</updated>
+    
+    <content type="html"><![CDATA[<p>之前开会讨论，遇到一个需要决策的问题，有同事在回答问题的基础上，比较详细的给出了自己的思考过程。觉得很有意思。我之前的意识层面，也只是认识到决策时对成本和价值的考量，随便找一本书读一读，再延伸思考一下。</p><span id="more"></span><p>书籍信息</p><blockquote><p>决策思维:人人必备的决策口袋书:升级典藏版/王嘉陵著.—北京: 东方出版社，2018.11</p></blockquote><h2 id="序和前言"><a href="#序和前言" class="headerlink" title="序和前言"></a>序和前言</h2><blockquote><p>做出正确的决策就是要有效地分配有限的资源以达到目标。</p></blockquote><p>比我之前的理解更完备。成本–<code>有限的资源</code>，价值–<code>目标</code>，过程中还要进行<code>有效地分配</code>。</p><p>另外一个点，就是要严谨，要认清楚一些概念。这一点，在个人思考的过程中可能会变得愈发松散，而以文字的形式输出的过程中，却需要更加的严谨。比如，粗略的认知下，决策就是我认为的，成本和价值的平衡。但是决策其实更多的还是一个过程，这个过程要实现有效地分配，是要去实现平衡。</p><blockquote><p>制定了一个系统化的方案，GPA。</p><ul><li>G (Goal) 目标：确立一个明确、共享的目标；</li><li>P (Priority) 优先级：明确不同任务的轻重缓急;</li><li>A (Alternatives) 可选方案：制作许多可选方案，选用最好的方案去达到目标。</li></ul></blockquote><p>这三个我目前最擅长的，就是 A，执行可选的方案，选用其中最好的方案去达成目标。针对目标和优先级，最不擅长，比如说每年年初的 OKR 讨论和个人事务的四象限管理中。</p><p>// todo more</p>]]></content>
+    
+    
+    <summary type="html">&lt;p&gt;之前开会讨论，遇到一个需要决策的问题，有同事在回答问题的基础上，比较详细的给出了自己的思考过程。觉得很有意思。我之前的意识层面，也只是认识到决策时对成本和价值的考量，随便找一本书读一读，再延伸思考一下。&lt;/p&gt;</summary>
+    
+    
+    
+    
+    <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
+    
+  </entry>
   
   <entry>
     <title>从最简单的规则开始设计</title>

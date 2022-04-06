@@ -126,7 +126,7 @@ todo
 * 使用组合来实现，对象适配器
   针对被适配的实例来进行适配，使用对象的组合来实现。在调用是，所有的方法，都被委托给被适配的对象。
   
-  ![对象适配器 UML 图](https://yaohwu.xyz/link-image/static/eGoQni.png)
+  ![对象适配器 UML 图](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/eGoQni.png)
   
 * 使用继承来实现，类适配器
 
@@ -134,4 +134,4 @@ todo
 
   总是使用一个适配器实例即可，不会在不同的被适配对象实例间创建不同的适配器。
 
-  ![类适配器 UML 图](https://yaohwu.xyz/link-image/static/0VlslE.png)
+  ![类适配器 UML 图](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/0VlslE.png)

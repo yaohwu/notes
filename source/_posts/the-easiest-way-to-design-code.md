@@ -27,14 +27,14 @@ tags: [design pattern]
    1. 针对设计模式的应用场景进行分类，从对象，到装饰，到松耦合 OO，到封装，到适配和外观，到集合，到状态控制，到访问控制，有一整个的故事线，很有意思。
    2. 从简单的例子，到多模式的组合进阶使用，由易到难，由 demo 到生产；
 
-   ![head first 设计模式 java 实现](https://gitee.com/yaohwu/link/raw/master/static/F97LMr.png)
+   ![head first 设计模式 java 实现](https://yaohwu.xyz/link-image/static/F97LMr.png)
 
 1. 书的讲述形式很好
 
    1. 不断的 Q&A，不断的比较，容易引发自己的思考，印象也就更深刻；
 
    2. 你会发现，即使同一个模式，在不同场景下也是有不同的使用方案的，甚至这些方案在某些情况下看起来是违背了一些总结出来的原则，比如“优先使用组合而不是继承”，举个例子[适配器模式](https://notes.yaohwu.xyz/2019/09/25/software-design/#%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F-Adapter-Pattern)；如果没有这样的思考，很容易对某一个模式产生偏见和错误理解。
-      ![两种适配器的思辨](https://gitee.com/yaohwu/link/raw/master/static/OoZCjB.png)
+      ![两种适配器的思辨](https://yaohwu.xyz/link-image/static/OoZCjB.png)
 
 ### 在你的设计和已有的应用中寻找他们
 
@@ -70,7 +70,7 @@ tags: [design pattern]
 
 比如我们业务中的统计逻辑，有好几处都要进行对模板信息的统计，但是是因为不同时期的功能，抄来抄去，没有再去整理，出现了大量的重复代码，维护起来，要改都得改。
 
-![重复代码](https://gitee.com/yaohwu/link/raw/master/static/6NkWaT.png)
+![重复代码](https://yaohwu.xyz/link-image/static/6NkWaT.png)
 
 这些重复的逻辑甚至都出现在同样的方法中，几百行的方法，随着迭代越来越多，不断追加，没有时间去重构来减少重复代码。
 
@@ -78,7 +78,7 @@ tags: [design pattern]
 
 重复的方法块出现，肯定是封装出现了问题。还有一类重复，就是出现了大量的实现类。还拿埋点逻辑来说，`切入点的选择和切入的实现` 这个接口出现了大量的实现。
 
-![大量的接口实现](https://gitee.com/yaohwu/link/raw/master/static/iIDlKN.png)
+![大量的接口实现](https://yaohwu.xyz/link-image/static/iIDlKN.png)
 
 这当然也是一个设计上的问题。大量的实现类反映接口在易用性和抽象上的弊端。想要实现新的切入点的成本高昂。
 

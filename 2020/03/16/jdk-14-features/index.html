@@ -144,11 +144,11 @@
 
 <h2 id="JEP-343-Packaging-Tool-Incubator"><a href="#JEP-343-Packaging-Tool-Incubator" class="headerlink" title="JEP 343 Packaging Tool (Incubator)"></a>JEP 343 Packaging Tool (Incubator)</h2><p><a target="_blank" rel="noopener" href="https://openjdk.java.net/jeps/343">JEP 343</a> 将提供一个打包独立 java 应用程序的 cli 工具 jpackage。支持使用 ToolProviderAPI 编程调用，不支持交叉编译，打包格式包括 Windows 上的 msi 与exe，macOS 上的 pkg 和 dmg，Linux 上的 deb 和 rpm。</p>
 <h2 id="JEP-345-NUMA-Aware-Memory-Allocation-for-G1"><a href="#JEP-345-NUMA-Aware-Memory-Allocation-for-G1" class="headerlink" title="JEP 345 NUMA-Aware Memory Allocation for G1"></a>JEP 345 NUMA-Aware Memory Allocation for G1</h2><p>通过 实现 NUMA 感知内存分配，提供了 G1 在大型机器上的性能。</p>
-<p>//todo more</p>
+<p>&#x2F;&#x2F;todo more</p>
 <h2 id="JEP-349-JFR-Event-Streaming"><a href="#JEP-349-JFR-Event-Streaming" class="headerlink" title="JEP 349 JFR Event Streaming"></a>JEP 349 JFR Event Streaming</h2><p><a target="_blank" rel="noopener" href="https://openjdk.java.net/jeps/349">JEP 349</a> Expose JDK Flight Recorder data for continuous monitoring.</p>
-<p>// todo more</p>
+<p>&#x2F;&#x2F; todo more</p>
 <h2 id="JEP-352-Non-Volatile-Mapped-Byte-Buffers"><a href="#JEP-352-Non-Volatile-Mapped-Byte-Buffers" class="headerlink" title="JEP 352 Non-Volatile Mapped Byte Buffers"></a>JEP 352 Non-Volatile Mapped Byte Buffers</h2><p><a target="_blank" rel="noopener" href="https://openjdk.java.net/jeps/352">JEP 352</a> Add new JDK-specific file mapping modes so that the FileChannel API can be used to create MappedByteBuffer instances that refer to non-volatile memory.</p>
-<p>// todo more</p>
+<p>&#x2F;&#x2F; todo more</p>
 <h2 id="JEP-358-Helpful-NullPointerExceptions"><a href="#JEP-358-Helpful-NullPointerExceptions" class="headerlink" title="JEP 358 Helpful NullPointerExceptions"></a>JEP 358 Helpful NullPointerExceptions</h2><p><a target="_blank" rel="noopener" href="https://openjdk.java.net/jeps/358">JEP 358</a> 通过精准描述哪个变量是 null 来提高 jvm 生成的 NPE 的可用性。</p>
 <p>这可以说是一个非常好的特性了，在很多代码中，例如：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a.b.i = <span class="number">99</span>;</span><br><span class="line">a[i][j][<span class="number">3</span>] = <span class="number">99</span>;</span><br><span class="line"><span class="keyword">int</span> i = a.get().pop().size();</span><br><span class="line"></span><br></pre></td></tr></table></figure>

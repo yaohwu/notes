@@ -253,7 +253,7 @@
 <h3 id="thrift"><a href="#thrift" class="headerlink" title="thrift"></a>thrift</h3><p>由Fackbook开发的可伸缩、跨语言的服务开发框架，该框架已经开源并且加入的Apache项目。Thrift主要功能是：通过自定义的Interface Definition Language(IDL)，可以创建基于RPC的客户端和服务端的服务代码。数据和服务代码的生成是通过Thrift内置的代码生成器来实现的。Thrift 的跨语言性体现在，它可以生成C++, Java, Python, PHP, Ruby, Erlang, Perl, Haskell, C#, Cocoa, JavaScript, Node.js, Smalltalk, OCaml , Delphi等语言的代码，且它们之间可以进行透明的通信。</p>
 <h3 id="Finagle"><a href="#Finagle" class="headerlink" title="Finagle"></a>Finagle</h3><p>Finagle是Twitter基于Netty开发的支持容错的、协议无关的RPC框架。也支持多种协议。Finagle  is written in Scala, but provides both Scala and Java idiomatic APIs.</p>
 <h3 id="Avro"><a href="#Avro" class="headerlink" title="Avro"></a>Avro</h3><p>Avro是Hadoop中的一个子项目，也是Apache中一个独立的项目。主要用在Hadoop中。类似于Thrift，支持跨编程语言实现（C, C++, C#，Java, Python, Ruby, PHP）。用来支持数据密集型应用，适合于远程或本地大规模数据的存储和交换。</p>
-<h3 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a>grpc</h3><p>由Google主导开发的RPC框架，使用HTTP/2协议并用ProtoBuf作为序列化工具。</p>
+<h3 id="grpc"><a href="#grpc" class="headerlink" title="grpc"></a>grpc</h3><p>由Google主导开发的RPC框架，使用HTTP&#x2F;2协议并用ProtoBuf作为序列化工具。</p>
 <h3 id="hessian"><a href="#hessian" class="headerlink" title="hessian"></a>hessian</h3><h2 id="产品中的应用场景"><a href="#产品中的应用场景" class="headerlink" title="产品中的应用场景"></a>产品中的应用场景</h2><p>也不好说，RPC 是建立在服务调用的基础上的。</p>
 <p>目前我们产品中的服务调用有哪些呢？</p>
 <p>集群环境下的分发？也用不到，直接分发就好了。</p>

@@ -168,10 +168,10 @@
 <h3 id="SQL-注入"><a href="#SQL-注入" class="headerlink" title="SQL 注入"></a>SQL 注入</h3><p>利用后端程序的漏洞，针对数据库进行攻击。</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username <span class="operator">=</span> &quot;$username&quot; <span class="keyword">AND</span> password <span class="operator">=</span> &quot;$password&quot;;</span><br></pre></td></tr></table></figure>
 
-<p>如果攻击者设定了一个 password = anywords” OR 1=1 的密码，那么执行的 sql 就变成了</p>
+<p>如果攻击者设定了一个 password &#x3D; anywords” OR 1&#x3D;1 的密码，那么执行的 sql 就变成了</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> users <span class="keyword">WHERE</span> username <span class="operator">=</span> &quot;xxx&quot; <span class="keyword">AND</span> password <span class="operator">=</span> &quot;anywords&quot; <span class="keyword">OR</span> <span class="number">1</span><span class="operator">=</span><span class="number">1</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>如果 构造密码为 password anywords” OR 1=1;DROP TABLE users ，那么 users 表都会被删除。</p>
+<p>如果 构造密码为 password anywords” OR 1&#x3D;1;DROP TABLE users ，那么 users 表都会被删除。</p>
 <p><img src="https://user-images.githubusercontent.com/9320666/45463573-557edc00-b73f-11e8-8990-51c6d45c7f7e.jpg" alt="&#39;上古&#39;时代，网络上流传的搞笑图片" title="&#39;上古&#39;时代，网络上流传的搞笑图片"></p>
 <h3 id="sql-注入防范"><a href="#sql-注入防范" class="headerlink" title="sql 注入防范"></a>sql 注入防范</h3><ul>
 <li>预编译sql</li>
@@ -190,7 +190,7 @@
 <ul>
 <li>交给 ORM 框架</li>
 </ul>
-<h3 id="hash-DoS-Denial-of-Service"><a href="#hash-DoS-Denial-of-Service" class="headerlink" title="hash DoS (Denial of Service)"></a>hash DoS (Denial of Service)</h3><p>我们都知道，哈希表 是一个 O(1) 的数据结构，对于其中的任意元素=可以在一个与哈希表长度无关的时间内计算出一个哈希值（key），然后在常量时间内定位到一个bucket，找到改元素。</p>
+<h3 id="hash-DoS-Denial-of-Service"><a href="#hash-DoS-Denial-of-Service" class="headerlink" title="hash DoS (Denial of Service)"></a>hash DoS (Denial of Service)</h3><p>我们都知道，哈希表 是一个 O(1) 的数据结构，对于其中的任意元素&#x3D;可以在一个与哈希表长度无关的时间内计算出一个哈希值（key），然后在常量时间内定位到一个bucket，找到改元素。</p>
 <p>这是理想的情况，但是存在不同的数据项，具有相同的 hash 值，这是就会发生 hash 碰撞。</p>
 <p>哈希表的实现需要解决碰撞问题，碰撞解决大体有两种思路，第一种是根据某种原则将被碰撞数据定为到其它桶，例如线性探测——如果数据在插入时发生了碰撞，则顺序查找这个桶后面的桶，将其放入第一个没有被使用的桶；第二种策略是每个桶不是一个只能容纳单个数据项的位置，而是一个可容纳多个数据的数据结构（例如链表或红黑树），所有碰撞的数据以某种数据结构的形式组织起来。</p>
 <p>不论使用了哪种碰撞解决策略，都导致插入和查找操作的时间复杂度不再是 O(1)。以查找为例，不能通过key定位到桶就结束，必须还要比较原始key（即未做哈希之前的key）是否相等，如果不相等，则要使用与插入相同的算法继续查找，直到找到匹配的值或确认数据不在哈希表中。</p>

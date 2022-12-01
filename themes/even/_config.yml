@@ -27,8 +27,8 @@ menu:
 # Theme Settings
 # ===========================================
 # color: default | mint green | cobalt blue | hot pink | dark violet
-color: default
-# color: grieve grey
+# color: default
+color: grieve grey
 
 # default page mode: default | archives
 mode: default

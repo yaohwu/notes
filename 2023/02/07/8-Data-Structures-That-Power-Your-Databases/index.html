@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="description" content="8 Data Structures That Power Your Databases"/><meta name="keywords" content="data structures, yaohwu" /><link rel="alternate" href="/atom.xml" title="yaohwu" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
+<link rel="canonical" href="https://notes.yaohwu.xyz/2023/02/07/8-Data-Structures-That-Power-Your-Databases/"/>
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
+    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+  </script>
+  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RCSCVVH4VT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RCSCVVH4VT');
+</script><script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
+</script>
+
+    <title>8 Data Structures That Power Your Databases - yaohwu</title>
+  <meta name="generator" content="Hexo 5.4.0"></head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/." class="logo">yaohwu</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list"><a href="/">
+        <li class="mobile-menu-item">Home
+          </li>
+      </a><a href="/archives/">
+        <li class="mobile-menu-item">Archives
+          </li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags
+          </li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories
+          </li>
+      </a><a href="/about/">
+        <li class="mobile-menu-item">About
+          </li>
+      </a></ul>
+</nav>
+<div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/." class="logo">yaohwu</a>
+</div>
+
+<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
+          <a class="menu-item-link" href="/">
+            Home
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/archives/">
+            Archives
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/tags/">
+            Tags
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/categories/">
+            Categories
+            </a>
+        </li>
+      <li class="menu-item">
+          <a class="menu-item-link" href="/about/">
+            About
+            </a>
+        </li>
+      </ul></nav>
+</header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content"><article class="post">
+    <header class="post-header">
+      <h1 class="post-title">8 Data Structures That Power Your Databases
+        </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2023-02-07
+        </span></div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Guide"><span class="toc-text">Guide</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SkipList-%E8%B7%B3%E8%A1%A8"><span class="toc-text">SkipList 跳表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-text">背景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E6%96%B9%E6%A1%88"><span class="toc-text">性能优化方案</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8E%9F%E7%90%86%E7%A4%BA%E6%84%8F"><span class="toc-text">原理示意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B8%E5%9E%8B%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">典型的应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#redis-%E7%9A%84%E6%9C%89%E5%BA%8F%E9%9B%86%E5%90%88%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88-redis-%E9%87%8C%E9%9D%A2%E8%A6%81%E4%BD%BF%E7%94%A8%E8%B7%B3%E8%A1%A8%E6%9D%A5%E5%AE%9E%E7%8E%B0%EF%BC%9F"><span class="toc-text">redis 的有序集合，为什么 redis 里面要使用跳表来实现？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hash-Index"><span class="toc-text">Hash Index</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hash-Index-%E5%8E%9F%E7%90%86%E7%A4%BA%E6%84%8F"><span class="toc-text">Hash Index 原理示意</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%99%E6%80%81-hash"><span class="toc-text">静态 hash</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E6%80%81-hash"><span class="toc-text">动态 hash</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%9D%9E%E5%B8%B8%E5%B8%B8%E7%94%A8%E7%9A%84%E5%86%85%E5%AD%98%E7%B4%A2%E5%BC%95%E6%96%B9%E6%A1%88"><span class="toc-text">非常常用的内存索引方案</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Sorted-String-Table-SSTable"><span class="toc-text">Sorted String Table(SSTable)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LSM-TREE"><span class="toc-text">LSM TREE</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#B-tree"><span class="toc-text">B-tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Inverted-Index"><span class="toc-text">Inverted Index</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Suffix-Tree"><span class="toc-text">Suffix Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R-Tree"><span class="toc-text">R-Tree</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ref"><span class="toc-text">ref</span></a></li></ol>
+    </div>
+  </div><div class="post-content"><p>介绍学习一下 8 种支撑起数据库的数据结构。</p>
+<span id="more"></span>
+
+<h2 id="Guide"><a href="#Guide" class="headerlink" title="Guide"></a>Guide</h2><p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202301302010209-8-data-structures-database.png" alt="8 Data Structures That Power Your Databases"></p>
+<p>由于到可能回到算法层面，内容会变得很多，我准备的也比较仓促，有很多也没搞懂，因此我们尽可能避免实现层面的问题。</p>
+<p>将结构示意和原理示意，然后将优劣势，再最后将实际的应用场景。总结来说，就是上图稍微扩展扩展。</p>
+<h2 id="SkipList-跳表"><a href="#SkipList-跳表" class="headerlink" title="SkipList 跳表"></a>SkipList 跳表</h2><p>SkipList ( 跳表 ) 这种数据结构是由<em>William Pugh</em>于1990年在在 <a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/w/index.php?title=Communications_of_the_ACM&action=edit&redlink=1">Communications of the ACM</a> June 1990, 33(6) 668-676 发表了<em>Skip lists: a probabilistic alternative to balanced trees</em>，在其中详细描述了他的工作。由论文标题可知，SkipList的设计初衷是作为替换平衡树的一种选择。</p>
+<h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>讲到平衡树，那么就得稍微展开介绍介绍。</p>
+<p>树到二叉树到二叉搜索树到平衡树或者跳表，这算是树结构的一个优化链条。</p>
+<p><strong>树结构</strong>，现实生活应该很常见。到计算机领域，最多的是<strong>二叉树</strong>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071539522-tree-binary-tree.png" alt="tree-and-binary-tree"></p>
+<ul>
+<li>将一棵树转换为二叉树的方法：<ul>
+<li>在兄弟之间加一连线；</li>
+<li>对每个结点，除了其左孩子外，去除其与其馀孩子之间的联系；</li>
+<li>以树的根结点为轴心，将整树顺时针转45度。</li>
+</ul>
+</li>
+</ul>
+<p>二叉树有很多的性能问题，这很显而易见。</p>
+<p>因此演变出来，二叉搜索树。</p>
+<p><strong>二叉搜索树</strong>（英语：Binary Search Tree），是指一棵空树或者具有下列性质的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E4%BA%8C%E5%8F%89%E6%A0%91">二叉树</a>：</p>
+<ol>
+<li>若任意节点的左子树不空，则左子树上所有节点的值均小于它的根节点的值；</li>
+<li>若任意节点的右子树不空，则右子树上所有节点的值均大于它的根节点的值；</li>
+<li>任意节点的左、右子树也分别为二叉查找树；</li>
+</ol>
+<p>二叉搜索树相比于其他数据结构的优势在于查找、插入的时间复杂度较低，为O(logn)。</p>
+<h4 id="性能优化方案"><a href="#性能优化方案" class="headerlink" title="性能优化方案"></a>性能优化方案</h4><p>二叉树到二叉搜索树的这优化很容易理解，有序的嘛，有序的对于搜索和排序就很友好，性能就好。</p>
+<p>二叉搜索树到平衡树，大致讲一下。</p>
+<p>搜索、插入、删除的复杂度等于树高，期望O(logn)，最坏退化为偏斜二元树O(n)，树太深了。对于可能形成偏斜二元树的问题可以经由树高改良后的平衡树将搜寻、插入、删除的时间复杂度都维持在 O(log n)，如AVL树、红黑树等。</p>
+<p>但是</p>
+<blockquote>
+<p>那么，狗蛋，代价是什么呢？–地狱咆哮《WOW》</p>
+<p>团结是需要付出代价的。–周喆直《流浪地球2》</p>
+</blockquote>
+<p>举个例子，<strong>扁平化管理</strong>。</p>
+<p>旋转：几乎所有平衡树的操作都基于树旋转操作（也有部分基于重构，如替罪羊树），通过旋转操作可以使得树趋于平衡。对一棵搜索树进行查询、新增、删除等动作，所花的时间与树的高度h成比例，并不与树的容量n成比例。如果可以让树维持平衡，也就是让h维持在O(logn)的左右，就可以在O(logn)的复杂度内完成各种基本操作。</p>
+<p>由于插入过程中可能需要多次旋转，导致插入效率较低，因而才有了在工程界更加实用的红黑树。</p>
+<p>但是红黑树有一个问题就是在并发环境下使用不方便，比如需要更新数据时，Skip需要更新的部分比较少，锁的东西也更少，而红黑树有个平衡的过程，在这个过程中会涉及到较多的节点，需要锁住更多的节点，从而降低了并发性能。</p>
+<blockquote>
+<p>SkipList还有一个优势就是实现简单，SkipList的实现只花了2个小时，而红黑树，我可能得2天。</p>
+</blockquote>
+<h3 id="原理示意"><a href="#原理示意" class="headerlink" title="原理示意"></a>原理示意</h3><p>先看几个树结构的示意动画</p>
+<p><a target="_blank" rel="noopener" href="https://www.cs.usfca.edu/~galles/visualization/Algorithms.html">visualization&#x2F;Algorithms</a></p>
+<p>看跳表的原理，跳表使用概率均衡技术而不是使用强制性均衡，因此，对于插入和删除结点比传统上的平衡树算法更为简洁高效。</p>
+<p>这也就是 probabilistic  的来源。</p>
+<p>基础跳表</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071615993-skiplist-1.png" alt="basic"></p>
+<p>查找 19 的过程</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071616650-sliplist-2.png" alt="find 19"></p>
+<p>随机生成的跳表</p>
+<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071617885-skiplist-3.png" alt="random generacted skiplist"></p>
+<h3 id="典型的应用场景"><a href="#典型的应用场景" class="headerlink" title="典型的应用场景"></a>典型的应用场景</h3><h4 id="redis-的有序集合，为什么-redis-里面要使用跳表来实现？"><a href="#redis-的有序集合，为什么-redis-里面要使用跳表来实现？" class="headerlink" title="redis 的有序集合，为什么 redis 里面要使用跳表来实现？"></a>redis 的有序集合，<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=1171423">为什么 redis 里面要使用跳表来实现</a>？</h4><p>There are a few reasons:</p>
+<p>\1) They are not very memory intensive. It’s up to you basically. Changing parameters about the probability of a node to have a given number of levels will make then <em>less</em> memory intensive than btrees.</p>
+<p>\2) A sorted set is often target of many ZRANGE or ZREVRANGE operations, that is, traversing the skip list as a linked list. With this operation the cache locality of skip lists is at least as good as with other kind of balanced trees.</p>
+<p>\3) They are simpler to implement, debug, and so forth. For instance thanks to the skip list simplicity I received a patch (already in Redis master) with augmented skip lists implementing ZRANK in O(log(N)). It required little changes to the code.</p>
+<p>About the Append Only durability &amp; speed, I don’t think it is a good idea to optimize Redis at cost of more code and more complexity for a use case that IMHO should be rare for the Redis target (fsync() at every command). Almost no one is using this feature even with ACID SQL databases, as the performance hint is big anyway.</p>
+<p>About threads: our experience shows that Redis is mostly I&#x2F;O bound. I’m using threads to serve things from Virtual Memory. The long term solution to exploit all the cores, assuming your link is so fast that you can saturate a single core, is running multiple instances of Redis (no locks, almost fully scalable linearly with number of cores), and using the “Redis Cluster” solution that I plan to develop in the future.</p>
+<p>简单够用。跳表足够简单 Antirez 很喜欢很满意，除此之外因为内存中的 IO 相对于磁盘来说足够快 所以相对于 IO 次数多并不会造成速度上过大的差距。</p>
+<h2 id="Hash-Index"><a href="#Hash-Index" class="headerlink" title="Hash Index"></a>Hash Index</h2><h3 id="Hash-Index-原理示意"><a href="#Hash-Index-原理示意" class="headerlink" title="Hash Index 原理示意"></a>Hash Index 原理示意</h3><p>基于哈希表实现，只有精确匹配索引所有列的查询才有效。对于每一行数据，存储引擎都会对所有的索引列计算一个哈希码（hash code），哈希码是一个较小的值，并且不同键值的行计算出来的哈希码也不一样。哈希索引将所有的哈希码存储在索引中，同时在哈希表中保存指向每个数据行的指针。</p>
+<h4 id="静态-hash"><a href="#静态-hash" class="headerlink" title="静态 hash"></a>静态 hash</h4><p>云端 swift 的 bucket hash，针对 appid 和 yearmonth 的 hash 索引，用于加速指定 appid 和 yearmonth 的查询，使用的就是静态的 hash。</p>
+<p>缺点：<br>一旦确定，是不能够修改的，<strong>必须在实现系统时选择确定的散列函数</strong>。</p>
+<h4 id="动态-hash"><a href="#动态-hash" class="headerlink" title="动态 hash"></a>动态 hash</h4><p>允许散列函数动态改变，以适应数据库增大或缩小的需要。</p>
+<p>当数据库增大或缩小时，可扩充散列可以通过桶的分裂或合并来适应数据库大小的变化，这样可以保持空间的使用效率。此外，由于重组每次仅作用于一个桶，因此所带来的性能开销较低。</p>
+<ul>
+<li>选择一个具有均匀性和随机性特性的散列函数 h。此散列函数产生的值范围相对较大，是 b 位二进制整数，一个典型的 b 值是 32。</li>
+<li>把记录插入文件时按需建桶，用小于等于 b 的 i 个位用作附加桶地址表中的偏移量，i 的值会随着数据库大小的变化而增大或者减少。</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071736441-dynamic-index.png" alt="dynamic-index"></p>
+<p>优点</p>
+<ul>
+<li>随着记录的增加, 动态散列的性能并不会下降；</li>
+<li>动态散列有着最小的空间开销。</li>
+</ul>
+<p>缺点</p>
+<ul>
+<li>会增加一次额外的查询定位, 因为在查询桶本身之前还需要查找目录来定位桶；</li>
+<li>存储区地址表本身可能变得很大；</li>
+<li>更改存储区地址表的大小是一项代价昂贵的操作。</li>
+</ul>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3><h4 id="非常常用的内存索引方案"><a href="#非常常用的内存索引方案" class="headerlink" title="非常常用的内存索引方案"></a>非常常用的内存索引方案</h4><h2 id="Sorted-String-Table-SSTable"><a href="#Sorted-String-Table-SSTable" class="headerlink" title="Sorted String Table(SSTable)"></a>Sorted String Table(SSTable)</h2><p>ref <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Jack47/p/sstable-1.html">https://www.cnblogs.com/Jack47/p/sstable-1.html</a></p>
+<h2 id="LSM-TREE"><a href="#LSM-TREE" class="headerlink" title="LSM TREE"></a>LSM TREE</h2><p>ref <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/181498475">https://zhuanlan.zhihu.com/p/181498475</a></p>
+<h2 id="B-tree"><a href="#B-tree" class="headerlink" title="B-tree"></a>B-tree</h2><p>ref <a target="_blank" rel="noopener" href="https://www.yiibai.com/data_structure/b-tree.html">https://www.yiibai.com/data_structure/b-tree.html</a></p>
+<h2 id="Inverted-Index"><a href="#Inverted-Index" class="headerlink" title="Inverted Index"></a>Inverted Index</h2><p>ref <a target="_blank" rel="noopener" href="https://www.mubucm.com/doc/2CsWtcrN4Is">https://www.mubucm.com/doc/2CsWtcrN4Is</a></p>
+<p>ref <a target="_blank" rel="noopener" href="https://www.jianshu.com/p/3d0fc2e77620">https://www.jianshu.com/p/3d0fc2e77620</a></p>
+<h2 id="Suffix-Tree"><a href="#Suffix-Tree" class="headerlink" title="Suffix Tree"></a>Suffix Tree</h2><p>ref <a target="_blank" rel="noopener" href="https://www.cnblogs.com/luosongchao/p/3247478.html">https://www.cnblogs.com/luosongchao/p/3247478.html</a></p>
+<h2 id="R-Tree"><a href="#R-Tree" class="headerlink" title="R-Tree"></a>R-Tree</h2><p>ref <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/62639268">https://zhuanlan.zhihu.com/p/62639268</a></p>
+<h2 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/HiWong/SkipListPro">https://github.com/HiWong/SkipListPro</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/ict2014/article/details/17394259">https://blog.csdn.net/ict2014/article/details/17394259</a></li>
+<li><a target="_blank" rel="noopener" href="https://rasmuspagh.net/courses/DBT08/">https://rasmuspagh.net/courses/DBT08/</a></li>
+<li><a target="_blank" rel="noopener" href="https://rasmuspagh.net/courses/DBT08/02-hashing.pdf">https://rasmuspagh.net/courses/DBT08/02-hashing.pdf</a></li>
+</ol>
+
+      </div>
+      <div class="post-copyright">
+    <p class="copyright-item">
+      <span>Author: </span>
+      <a href="https://notes.yaohwu.xyz">yaohwu</a>
+    </p>
+    <p class="copyright-item">
+      <span>Link: </span>
+      <a href="https://notes.yaohwu.xyz/2023/02/07/8-Data-Structures-That-Power-Your-Databases/">https://notes.yaohwu.xyz/2023/02/07/8-Data-Structures-That-Power-Your-Databases/</a>
+    </p>
+    <p class="copyright-item">
+      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+      <footer class="post-footer">
+        <div class="post-tags">
+            <a href="/tags/data-structures/">data structures</a>
+            </div>
+        
+        <nav class="post-nav"><a class="prev" href="/2023/04/10/read-list-in-mubu-app/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">read-list-in-mubu-app</span>
+        <span class="prev-text nav-mobile">Prev</span>
+      </a>
+    <a class="next" href="/2023/02/07/merge-two-git-repo-with-history-left/">
+        <span class="next-text nav-default">merge-two-git-repo-with-history-left</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    </nav></footer>
+    </article></div><div class="comments" id="comments"><div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div></div>
+      </main>
+
+      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:yaohwu@163.com" class="iconfont icon-email" title="email"></a>
+        <a target="_blank" rel="noopener" href="https://twitter.com/yaohwu" class="iconfont icon-twitter" title="twitter"></a>
+        <a target="_blank" rel="noopener" href="https://github.com/yaohwu" class="iconfont icon-github" title="github"></a>
+        <a target="_blank" rel="noopener" href="https://weibo.com/500856779" class="iconfont icon-weibo" title="weibo"></a>
+        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    </div><div class="copyright">
+  <span class="power-by">
+    Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    Theme - 
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">&copy;2015 - 2023<span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">yaohwu</span>
+  </span>
+</div>
+</footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div><script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://notes.yaohwu.xyz/2023/02/07/8-Data-Structures-That-Power-Your-Databases/';
+        this.page.identifier = '2023/02/07/8-Data-Structures-That-Power-Your-Databases/';
+        this.page.title = '8 Data Structures That Power Your Databases';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//yaohwu-xyz.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+  <!-- Hotjar Tracking Code for https://notes.yaohwu.xyz/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:2982407,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
+<script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
+</body>
+</html>

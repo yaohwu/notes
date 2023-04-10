@@ -1,7 +1,7 @@
 ---
 title: The-Cathedral-the-Bazaar-zh
 date: 2022-01-04 14:08:23
-tags: reproduced
+tags: [reproduced,read]
 ---
 
 教堂与市集

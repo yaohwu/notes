@@ -1,7 +1,7 @@
 ---
 title: 泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性
 date: 2019-08-14 16:09:35
-tags: [generic]
+tags: [generic,java-basic]
 ---
 
 > Before generics, you had to cast every object you read from a collection.

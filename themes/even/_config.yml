@@ -27,6 +27,7 @@ menu:
 # Theme Settings
 # ===========================================
 # color: default | mint green | cobalt blue | hot pink | dark violet
+# use hexo-renderer-dartsass instead of hexo-render-sass config not work, todo make it work
 color: cobalt blue
 # color: grieve grey
 
@@ -125,7 +126,7 @@ gitalk:
 utterances:
   enable: false
   repo: owner/repo # Repository
-  issueTerm: title  # Blog post ↔️ issue mapping: pathname | url | title | og:title
+  issueTerm: title # Blog post ↔️ issue mapping: pathname | url | title | og:title
   theme: github-light # Theme: github-light | github-dark | github-dark-orange | icy-dark | dark-blue | photon-dark
   label: utterances # Issue label
 

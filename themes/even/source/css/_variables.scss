@@ -4,7 +4,9 @@
 
 // ========== Theme Color ========== //
 // Theme color config from `even/_config.yml`
-$theme-color-config: to-lower-case(hexo-theme-config('color'));
+// use hexo-renderer-dartsass instead of hexo-render-sass config not work, todo make it work
+// $theme-color-config: to-lower-case(hexo-theme-config('color'));
+$theme-color-config: 'cobalt blue';
 
 // Default theme color map
 $theme-color-map: (

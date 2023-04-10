@@ -1,7 +1,7 @@
 ---
 title: enum静态变量的初始化
 date: 2021-07-23 10:52:23
-tags: work
+tags: [java-basic]
 ---
 
 前两天写代码的时候遇到这样的问题
@@ -13,7 +13,7 @@ tags: work
 前两天写代码的时候遇到这样的问题
 
 ```java
-import com.fr.cloud.ext.monitor.StorageType;
+import com.x.StorageType;
 import org.apache.log4j.Logger;
 
 import java.util.ArrayList;

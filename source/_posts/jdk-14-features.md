@@ -1,7 +1,7 @@
 ---
 title: JDK 14 Features
 date: 2020-03-16 09:09:35
-tags: [generic]
+tags: [java-basic]
 ---
 
 按照计划，明天（ 3 月 17 号） JDK 14 就要发布了，虽然距离真正使用还是比较远，但事先了解一下新特性还是比较好的，

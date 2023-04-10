@@ -1,7 +1,7 @@
 ---
 title: 8 Data Structures That Power Your Databases
 date: 2023-02-07 14:08:23
-tags: data structures
+tags: [data structures,database]
 ---
 
 介绍学习一下 8 种支撑起数据库的数据结构。

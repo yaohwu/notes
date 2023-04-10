@@ -1,5 +1,5 @@
 ---
-title: enum静态变量的初始化
+title: enum 静态变量的初始化
 date: 2021-07-23 10:52:23
 tags: [java-basic]
 ---

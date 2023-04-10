@@ -1,5 +1,5 @@
 ---
-title: read-list-in-mubu-app
+title: 幕布的读书笔记
 date: 2023-04-10 19:23:02
 tags: read
 ---

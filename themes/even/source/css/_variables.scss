@@ -23,7 +23,6 @@ $theme-color-map: (
 @if not(map-has-key($theme-color-map, $theme-color-config)) {
   $theme-color-config: 'default';
 }
-
 $theme-color-list: map-get($theme-color-map, $theme-color-config);
 
 // Default theme color of the site.
@@ -67,12 +66,12 @@ $global-background: $white !default;
 
 // Headings font size of the site.
 $global-headings: (
-        h1: 26px,
-        h2: 24px,
-        h3: 20px,
-        h4: 16px,
-        h5: 14px,
-        h6: 14px
+  h1: 26px,
+  h2: 24px,
+  h3: 20px,
+  h4: 16px,
+  h5: 14px,
+  h6: 14px
 ) !default;
 
 
@@ -199,39 +198,39 @@ $code-font-family: Consolas, Monaco, Menlo, Consolas, monospace !default;
 
 // Color of code highlight, solarized.
 $code-highlight-color: (
-        comment: #93a1a1,
-        keyword: #859900,
-        number: #2aa198,
-        title: #268bd2,
-        attribute: #b58900,
-        symbol: #cb4b16,
-        built_in: #dc322f
+  comment: #93a1a1,
+  keyword: #859900,
+  number: #2aa198,
+  title: #268bd2,
+  attribute: #b58900,
+  symbol: #cb4b16,
+  built_in: #dc322f
 ) !default;
 
 // Code type list.
 $code-type-list: (
-        html: "HTML",
-        js: "JavaScript",
-        bash: "Bash",
-        css: "CSS",
-        scss: "Scss",
-        java: "Java",
-        xml: "XML",
-        python: "Python",
-        json: "JSON",
-        swift: "Swift",
-        ruby: "Ruby",
-        php: "PHP",
-        c: "C",
-        cpp: "C++",
-        scheme: "Scheme",
-        objectivec: "Objective-C",
-        yml: "YAML",
-        stylus: "Stylus",
-        sql: "SQL",
-        http: "HTTP",
-        go: "Go",
-        kotlin: "Kotlin"
+  html: "HTML",
+  js: "JavaScript",
+  bash: "Bash",
+  css: "CSS",
+  scss: "Scss",
+  java: "Java",
+  xml: "XML",
+  python: "Python",
+  json: "JSON",
+  swift: "Swift",
+  ruby: "Ruby",
+  php: "PHP",
+  c: "C",
+  cpp: "C++",
+  scheme: "Scheme",
+  objectivec: "Objective-C",
+  yml: "YAML",
+  stylus: "Stylus",
+  sql: "SQL",
+  http: "HTTP",
+  go: "Go",
+  kotlin: "Kotlin"
 ) !default;
 
 // Color of the code background.

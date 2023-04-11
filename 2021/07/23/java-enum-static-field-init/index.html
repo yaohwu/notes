@@ -135,7 +135,7 @@
 
 <p>这就有疑问了，为什么这样显著的错误，不能在编译器层面去做提示。</p>
 <p>搜索时，我发现了 R 大的这篇文 <a target="_blank" rel="noopener" href="https://www.iteye.com/blog/rednaxelafx-460981">enum 静态成员的初始化</a>，在规范中，<a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html#jls-8.9">jls 8.9.2</a> 中已经对于构造方法中静态变量的引用进行了编译期的校验，但是对应的代码放在其他方法中，在构造方法红进行调用，那么编译器就没有那么智能去挖掘对应存在的问题了。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/BSSmsq.png" alt="image-20210816005223910"></p>
+<p><img src="https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/BSSmsq.png" alt="image-20210816005223910"></p>
 <p>还是要多看书、规范，来避免一些隐藏的坑点。</p>
 
       </div>

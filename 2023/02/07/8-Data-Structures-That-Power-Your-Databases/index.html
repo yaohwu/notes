@@ -120,14 +120,14 @@
   </div><div class="post-content"><p>介绍学习一下 8 种支撑起数据库的数据结构。</p>
 <span id="more"></span>
 
-<h2 id="Guide"><a href="#Guide" class="headerlink" title="Guide"></a>Guide</h2><p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202301302010209-8-data-structures-database.png" alt="8 Data Structures That Power Your Databases"></p>
+<h2 id="Guide"><a href="#Guide" class="headerlink" title="Guide"></a>Guide</h2><p><img src="https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202301302010209-8-data-structures-database.png" alt="8 Data Structures That Power Your Databases"></p>
 <p>由于到可能回到算法层面，内容会变得很多，我准备的也比较仓促，有很多也没搞懂，因此我们尽可能避免实现层面的问题。</p>
 <p>将结构示意和原理示意，然后将优劣势，再最后将实际的应用场景。总结来说，就是上图稍微扩展扩展。</p>
 <h2 id="SkipList-跳表"><a href="#SkipList-跳表" class="headerlink" title="SkipList 跳表"></a>SkipList 跳表</h2><p>SkipList ( 跳表 ) 这种数据结构是由<em>William Pugh</em>于1990年在在 <a href="https://link.zhihu.com/?target=https://zh.wikipedia.org/w/index.php?title=Communications_of_the_ACM&action=edit&redlink=1">Communications of the ACM</a> June 1990, 33(6) 668-676 发表了<em>Skip lists: a probabilistic alternative to balanced trees</em>，在其中详细描述了他的工作。由论文标题可知，SkipList的设计初衷是作为替换平衡树的一种选择。</p>
 <h3 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h3><p>讲到平衡树，那么就得稍微展开介绍介绍。</p>
 <p>树到二叉树到二叉搜索树到平衡树或者跳表，这算是树结构的一个优化链条。</p>
 <p><strong>树结构</strong>，现实生活应该很常见。到计算机领域，最多的是<strong>二叉树</strong>。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071539522-tree-binary-tree.png" alt="tree-and-binary-tree"></p>
+<p><img src="https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071539522-tree-binary-tree.png" alt="tree-and-binary-tree"></p>
 <ul>
 <li>将一棵树转换为二叉树的方法：<ul>
 <li>在兄弟之间加一连线；</li>
@@ -165,11 +165,11 @@
 <p>看跳表的原理，跳表使用概率均衡技术而不是使用强制性均衡，因此，对于插入和删除结点比传统上的平衡树算法更为简洁高效。</p>
 <p>这也就是 probabilistic  的来源。</p>
 <p>基础跳表</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071615993-skiplist-1.png" alt="basic"></p>
+<p><img src="https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071615993-skiplist-1.png" alt="basic"></p>
 <p>查找 19 的过程</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071616650-sliplist-2.png" alt="find 19"></p>
+<p><img src="https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071616650-sliplist-2.png" alt="find 19"></p>
 <p>随机生成的跳表</p>
-<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071617885-skiplist-3.png" alt="random generacted skiplist"></p>
+<p><img src="https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071617885-skiplist-3.png" alt="random generacted skiplist"></p>
 <h3 id="典型的应用场景"><a href="#典型的应用场景" class="headerlink" title="典型的应用场景"></a>典型的应用场景</h3><h4 id="redis-的有序集合，为什么-redis-里面要使用跳表来实现？"><a href="#redis-的有序集合，为什么-redis-里面要使用跳表来实现？" class="headerlink" title="redis 的有序集合，为什么 redis 里面要使用跳表来实现？"></a>redis 的有序集合，<a target="_blank" rel="noopener" href="https://news.ycombinator.com/item?id=1171423">为什么 redis 里面要使用跳表来实现</a>？</h4><p>There are a few reasons:</p>
 <p>\1) They are not very memory intensive. It’s up to you basically. Changing parameters about the probability of a node to have a given number of levels will make then <em>less</em> memory intensive than btrees.</p>
 <p>\2) A sorted set is often target of many ZRANGE or ZREVRANGE operations, that is, traversing the skip list as a linked list. With this operation the cache locality of skip lists is at least as good as with other kind of balanced trees.</p>
@@ -186,7 +186,7 @@
 <li>选择一个具有均匀性和随机性特性的散列函数 h。此散列函数产生的值范围相对较大，是 b 位二进制整数，一个典型的 b 值是 32。</li>
 <li>把记录插入文件时按需建桶，用小于等于 b 的 i 个位用作附加桶地址表中的偏移量，i 的值会随着数据库大小的变化而增大或者减少。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071736441-dynamic-index.png" alt="dynamic-index"></p>
+<p><img src="https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071736441-dynamic-index.png" alt="dynamic-index"></p>
 <p>优点</p>
 <ul>
 <li>随着记录的增加, 动态散列的性能并不会下降；</li>

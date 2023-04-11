@@ -10,7 +10,7 @@ tags: [data structures,database]
 
 ## Guide
 
-![8 Data Structures That Power Your Databases](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202301302010209-8-data-structures-database.png)
+![8 Data Structures That Power Your Databases](https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202301302010209-8-data-structures-database.png)
 
 由于到可能回到算法层面，内容会变得很多，我准备的也比较仓促，有很多也没搞懂，因此我们尽可能避免实现层面的问题。
 
@@ -28,7 +28,7 @@ SkipList ( 跳表 ) 这种数据结构是由*William Pugh*于1990年在在 [Comm
 
 **树结构**，现实生活应该很常见。到计算机领域，最多的是**二叉树**。
 
-![tree-and-binary-tree](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071539522-tree-binary-tree.png)
+![tree-and-binary-tree](https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071539522-tree-binary-tree.png)
 
 - 将一棵树转换为二叉树的方法：
   - 在兄弟之间加一连线；
@@ -83,15 +83,15 @@ SkipList ( 跳表 ) 这种数据结构是由*William Pugh*于1990年在在 [Comm
 
 基础跳表
 
-![basic](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071615993-skiplist-1.png)
+![basic](https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071615993-skiplist-1.png)
 
 查找 19 的过程
 
-![find 19](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071616650-sliplist-2.png)
+![find 19](https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071616650-sliplist-2.png)
 
 随机生成的跳表
 
-![random generacted skiplist](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071617885-skiplist-3.png)
+![random generacted skiplist](https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071617885-skiplist-3.png)
 
 ### 典型的应用场景
 
@@ -133,7 +133,7 @@ About threads: our experience shows that Redis is mostly I/O bound. I'm using th
 - 选择一个具有均匀性和随机性特性的散列函数 h。此散列函数产生的值范围相对较大，是 b 位二进制整数，一个典型的 b 值是 32。
 - 把记录插入文件时按需建桶，用小于等于 b 的 i 个位用作附加桶地址表中的偏移量，i 的值会随着数据库大小的变化而增大或者减少。
 
-![dynamic-index](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/202302071736441-dynamic-index.png)
+![dynamic-index](https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/202302071736441-dynamic-index.png)
 
 优点
 

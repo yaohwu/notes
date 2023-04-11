@@ -47,7 +47,7 @@ public class MainTools {
 
 可以正常编译执行，都很正常。
 
-![common using of tools and main](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/20221125120350.png)
+![common using of tools and main](https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/20221125120350.png)
 
 现在，将 Tools 的类实现稍加修改，将方法声明的返回值类型改一下，变成
 
@@ -70,7 +70,7 @@ public class Tools {
 
 ------
 
-![main after tools changed](https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/20221125120628.png)
+![main after tools changed](https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/20221125120628.png)
 
 答案是**不能**，会有 NoSuchMethodError 的异常。
 

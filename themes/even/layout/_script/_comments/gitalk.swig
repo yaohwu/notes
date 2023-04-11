@@ -1,11 +1,11 @@
 {%- if theme.gitalk.enable -%}
-{% set gitalk_js_url = '//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js' %}
+{% set gitalk_js_url = '//testingcf.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js' %}
 <script src="{{ gitalk_js_url }}"></script>
 
-{% set gitalk_css_url = '//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css' %}
+{% set gitalk_css_url = '//testingcf.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.css' %}
 <link rel="stylesheet" href="{{ gitalk_css_url }}"/>
 
-{% set md5_url = '//cdn.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js' %}
+{% set md5_url = '//testingcf.jsdelivr.net/npm/js-md5@0.7.3/src/md5.min.js' %}
 <script src="{{ md5_url }}"></script>
 
 <script>

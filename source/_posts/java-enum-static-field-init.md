@@ -123,4 +123,4 @@ public class AdditionHandlerManager {
 
 还是要多看书、规范，来避免一些隐藏的坑点。
 
-[def]: https://cdn.jsdelivr.net/gh/yaohwu/link-image/static/BSSmsq.png
+[def]: https://testingcf.jsdelivr.net/gh/yaohwu/link-image/static/BSSmsq.png

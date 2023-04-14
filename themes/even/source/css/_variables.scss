@@ -4,9 +4,8 @@
 
 // ========== Theme Color ========== //
 // Theme color config from `even/_config.yml`
-// use hexo-renderer-dartsass instead of hexo-render-sass config not work, todo make it work
-// $theme-color-config: to-lower-case(hexo-theme-config('color'));
-$theme-color-config: 'cobalt blue';
+$theme-color-config: to-lower-case(call(get-function('hexo-theme-config'), 'color'));
+// $theme-color-config: 'cobalt blue';
 
 // Default theme color map
 $theme-color-map: (
@@ -21,8 +20,9 @@ $theme-color-map: (
 // Check theme color config.
 // if it does not exist, use default theme color.
 @if not(map-has-key($theme-color-map, $theme-color-config)) {
-  $theme-color-config: 'default';
+    $theme-color-config: 'default';
 }
+
 $theme-color-list: map-get($theme-color-map, $theme-color-config);
 
 // Default theme color of the site.
@@ -66,12 +66,12 @@ $global-background: $white !default;
 
 // Headings font size of the site.
 $global-headings: (
-  h1: 26px,
-  h2: 24px,
-  h3: 20px,
-  h4: 16px,
-  h5: 14px,
-  h6: 14px
+        h1: 26px,
+        h2: 24px,
+        h3: 20px,
+        h4: 16px,
+        h5: 14px,
+        h6: 14px
 ) !default;
 
 
@@ -81,15 +81,15 @@ $header-padding: 20px 20px !default;
 
 // Font family: Chancery
 @font-face {
-  font-family: 'Chancery';
-  src: url('../fonts/chancery/apple-chancery-webfont.eot');
-  src: local('Apple Chancery'), url('../fonts/chancery/apple-chancery-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/chancery/apple-chancery-webfont.woff2') format('woff2'),
-  url('../fonts/chancery/apple-chancery-webfont.woff') format('woff'),
-  url('../fonts/chancery/apple-chancery-webfont.ttf') format('truetype'),
-  url('../fonts/chancery/apple-chancery-webfont.svg#apple-chancery') format('svg');
-  font-weight: lighter;
-  font-style: normal;
+    font-family: 'Chancery';
+    src: url('../fonts/chancery/apple-chancery-webfont.eot');
+    src: local('Apple Chancery'), url('../fonts/chancery/apple-chancery-webfont.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/chancery/apple-chancery-webfont.woff2') format('woff2'),
+    url('../fonts/chancery/apple-chancery-webfont.woff') format('woff'),
+    url('../fonts/chancery/apple-chancery-webfont.ttf') format('truetype'),
+    url('../fonts/chancery/apple-chancery-webfont.svg#apple-chancery') format('svg');
+    font-weight: lighter;
+    font-style: normal;
 }
 
 // Font size of the logo.
@@ -198,39 +198,39 @@ $code-font-family: Consolas, Monaco, Menlo, Consolas, monospace !default;
 
 // Color of code highlight, solarized.
 $code-highlight-color: (
-  comment: #93a1a1,
-  keyword: #859900,
-  number: #2aa198,
-  title: #268bd2,
-  attribute: #b58900,
-  symbol: #cb4b16,
-  built_in: #dc322f
+        comment: #93a1a1,
+        keyword: #859900,
+        number: #2aa198,
+        title: #268bd2,
+        attribute: #b58900,
+        symbol: #cb4b16,
+        built_in: #dc322f
 ) !default;
 
 // Code type list.
 $code-type-list: (
-  html: "HTML",
-  js: "JavaScript",
-  bash: "Bash",
-  css: "CSS",
-  scss: "Scss",
-  java: "Java",
-  xml: "XML",
-  python: "Python",
-  json: "JSON",
-  swift: "Swift",
-  ruby: "Ruby",
-  php: "PHP",
-  c: "C",
-  cpp: "C++",
-  scheme: "Scheme",
-  objectivec: "Objective-C",
-  yml: "YAML",
-  stylus: "Stylus",
-  sql: "SQL",
-  http: "HTTP",
-  go: "Go",
-  kotlin: "Kotlin"
+        html: "HTML",
+        js: "JavaScript",
+        bash: "Bash",
+        css: "CSS",
+        scss: "Scss",
+        java: "Java",
+        xml: "XML",
+        python: "Python",
+        json: "JSON",
+        swift: "Swift",
+        ruby: "Ruby",
+        php: "PHP",
+        c: "C",
+        cpp: "C++",
+        scheme: "Scheme",
+        objectivec: "Objective-C",
+        yml: "YAML",
+        stylus: "Stylus",
+        sql: "SQL",
+        http: "HTTP",
+        go: "Go",
+        kotlin: "Kotlin"
 ) !default;
 
 // Color of the code background.

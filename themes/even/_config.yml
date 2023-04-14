@@ -27,7 +27,6 @@ menu:
 # Theme Settings
 # ===========================================
 # color: default | mint green | cobalt blue | hot pink | dark violet
-# use hexo-renderer-dartsass instead of hexo-render-sass config not work, todo make it work
 color: cobalt blue
 # color: grieve grey
 

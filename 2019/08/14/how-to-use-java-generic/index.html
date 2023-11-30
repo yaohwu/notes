@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><meta charset="UTF-8"/>
+
+<head>
+  <!-- Website mata -->
+<meta charset="UTF-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-
+<!-- Disable transformation -->
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
 
@@ -13,31 +16,82 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
-<meta name="description" content="泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性"/><meta name="keywords" content="generic, java-basic, yaohwu" /><link rel="alternate" href="/atom.xml" title="yaohwu" type="application/atom+xml"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.1" />
-<link rel="canonical" href="https://notes.yaohwu.xyz/2019/08/14/how-to-use-java-generic/"/>
+<!-- Website description -->
 
-<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" /><script type="text/x-mathjax-config">
-    MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+<meta name="description" content="泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性" />
+
+
+<!-- Website keywords -->
+
+<meta name="keywords" content="generic, java-basic, yaohwu" />
+
+
+
+
+<!-- Website rss -->
+
+<link rel="alternate" href="/atom.xml" title="yaohwu" type="application/atom+xml">
+
+
+<!-- Website favicon -->
+
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=2.11.2" />
+
+
+<!-- Canonical, good for google search engine -->
+<link rel="canonical" href="https://notes.yaohwu.xyz/2019/08/14/how-to-use-java-generic/" />
+
+<!-- Fancybox styling -->
+
+<link rel="stylesheet" type="text/css" href="/lib/fancybox/jquery.fancybox.css" />
+
+
+<!-- MathJax (LaTeX) support -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });  
   </script>
-  <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.1" />
+<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+<!-- Theme styling -->
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=2.11.2" />
+
+<!-- Analytics and push -->
+
+
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-RCSCVVH4VT"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+
+  function gtag() {
+    dataLayer.push(arguments);
+  }
   gtag('js', new Date());
 
   gtag('config', 'G-RCSCVVH4VT');
-</script><script>
-  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"pjax":"","latex":true};
 </script>
 
-    <title>泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性 - yaohwu</title>
-  <meta name="generator" content="Hexo 6.3.0"></head>
+  
 
-  <body><div id="mobile-navbar" class="mobile-navbar">
+
+
+<!-- LeanCloud Counter -->
+
+
+<script>
+  window.config = {"leancloud":{"app_id":null,"app_key":null},"toc":true,"fancybox":true,"latex":true};
+</script>
+  
+  <title>泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性 - yaohwu</title>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div class="scrollPercentage"></div>
+  <div id="mobile-navbar" class="mobile-navbar">
   <div class="mobile-header-logo">
     <a href="/." class="logo">yaohwu</a>
   </div>
@@ -49,75 +103,139 @@
 </div>
 
 <nav id="mobile-menu" class="mobile-menu slideout-menu">
-  <ul class="mobile-menu-list"><a href="/">
-        <li class="mobile-menu-item">Home
-          </li>
-      </a><a href="/archives/">
-        <li class="mobile-menu-item">Archives
-          </li>
-      </a><a href="/tags/">
-        <li class="mobile-menu-item">Tags
-          </li>
-      </a><a href="/categories/">
-        <li class="mobile-menu-item">Categories
-          </li>
-      </a><a href="/about/">
-        <li class="mobile-menu-item">About
-          </li>
-      </a></ul>
+  <ul class="mobile-menu-list">
+    
+    <a href="/">
+      <li class="mobile-menu-item">
+        
+        
+        Home              </li>
+    </a>
+    
+    <a href="/archives/">
+      <li class="mobile-menu-item">
+        
+        
+        Archives              </li>
+    </a>
+    
+    <a href="/tags/">
+      <li class="mobile-menu-item">
+        
+        
+        Tags              </li>
+    </a>
+    
+    <a href="/categories/">
+      <li class="mobile-menu-item">
+        
+        
+        Categories              </li>
+    </a>
+    
+    <a href="/about/">
+      <li class="mobile-menu-item">
+        
+        
+        About              </li>
+    </a>
+    
+  </ul>
 </nav>
-<div class="container" id="mobile-panel">
-      <header id="header" class="header"><div class="logo-wrapper">
-  <a href="/." class="logo">yaohwu</a>
-</div>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+      <div class="logo-wrapper">  
+  <a href="/." class="logo">yaohwu</a>  
+</div>  
+  
+<nav class="site-navbar">  
+    
+    <ul id="menu" class="menu">  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/">  
+              
+              
+              Home  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/archives/">  
+              
+              
+              Archives  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/tags/">  
+              
+              
+              Tags  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/categories/">  
+              
+              
+              Categories  
+              
+          </a>  
+        </li>  
+        
+        <li class="menu-item">  
+          <a class="menu-item-link" href="/about/">  
+              
+              
+              About  
+              
+          </a>  
+        </li>  
+        
+    </ul>  
+    
+</nav>  
 
-<nav class="site-navbar"><ul id="menu" class="menu"><li class="menu-item">
-          <a class="menu-item-link" href="/">
-            Home
-            </a>
-        </li>
-      <li class="menu-item">
-          <a class="menu-item-link" href="/archives/">
-            Archives
-            </a>
-        </li>
-      <li class="menu-item">
-          <a class="menu-item-link" href="/tags/">
-            Tags
-            </a>
-        </li>
-      <li class="menu-item">
-          <a class="menu-item-link" href="/categories/">
-            Categories
-            </a>
-        </li>
-      <li class="menu-item">
-          <a class="menu-item-link" href="/about/">
-            About
-            </a>
-        </li>
-      </ul></nav>
-</header>
-
-      <main id="main" class="main">
-        <div class="content-wrapper">
-          <div id="content" class="content"><article class="post">
-    <header class="post-header">
-      <h1 class="post-title">泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性
-        </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2019-08-14
-        </span></div>
     </header>
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+  <header class="post-header">
+    <h1 class="post-title">
+      
+      泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性
+      
+    </h1>
 
-    <div class="post-toc" id="post-toc">
-    <h2 class="post-toc-title">Contents</h2>
-    <div class="post-toc-content">
-      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E9%9D%A2%E5%9B%9E%E7%AD%94"><span class="toc-text">正面回答</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%8C%83%E5%9E%8B"><span class="toc-text">什么是范型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%E6%B3%9B%E5%9E%8B"><span class="toc-text">怎么理解泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E6%A0%B7"><span class="toc-text">这样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D"><span class="toc-text">不</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%93%A6%E9%99%A4%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="toc-text">类型擦除带来的弊端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%AA%E4%B8%89%E7%A7%8D%E6%B3%9B%E5%9E%8B%E7%94%A8%E6%B3%95"><span class="toc-text">哪三种泛型用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB"><span class="toc-text">泛型类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3"><span class="toc-text">泛型接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-text">泛型方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9B"><span class="toc-text">使用泛型注意哪些</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%EF%BC%8C%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F%E7%B1%BB%E5%9E%8B%EF%BC%88raw-type%EF%BC%89"><span class="toc-text">使用泛型，不要使用原生类型（raw type）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E9%9D%9E%E5%8F%97%E6%A3%80%E8%AD%A6%E5%91%8A"><span class="toc-text">消除非受检警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E4%BC%98%E5%85%88%E4%BA%8E%E6%95%B0%E7%BB%84"><span class="toc-text">使用列表优先于数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E6%B3%9B%E5%9E%8B"><span class="toc-text">优先考虑泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-text">优先考虑泛型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E6%9C%89%E9%99%90%E5%88%B6%E9%80%9A%E9%85%8D%E7%AC%A6%E6%9D%A5%E6%8F%90%E5%8D%87-API-%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7"><span class="toc-text">利用有限制通配符来提升 API 的灵活性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E5%88%86%E4%BA%AB%E4%BC%9A%E9%97%AE%E9%A2%98"><span class="toc-text">几个分享会问题</span></a></li></ol>
+    <div class="post-meta">
+      <span class="post-time">
+        2019-08-14
+      </span>
+      
+      
+      
     </div>
-  </div><div class="post-content"><blockquote>
+  </header>
+
+    
+  <div class="post-toc" id="post-toc">  
+    <h2 class="post-toc-title">Contents</h2>  
+    <div class="post-toc-content">  
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E9%9D%A2%E5%9B%9E%E7%AD%94"><span class="toc-text">正面回答</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E8%8C%83%E5%9E%8B"><span class="toc-text">什么是范型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3%E6%B3%9B%E5%9E%8B"><span class="toc-text">怎么理解泛型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%99%E6%A0%B7"><span class="toc-text">这样</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D"><span class="toc-text">不</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%9E%8B%E6%93%A6%E9%99%A4%E5%B8%A6%E6%9D%A5%E7%9A%84%E5%BC%8A%E7%AB%AF"><span class="toc-text">类型擦除带来的弊端</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%AA%E4%B8%89%E7%A7%8D%E6%B3%9B%E5%9E%8B%E7%94%A8%E6%B3%95"><span class="toc-text">哪三种泛型用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E7%B1%BB"><span class="toc-text">泛型类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%8E%A5%E5%8F%A3"><span class="toc-text">泛型接口</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-text">泛型方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9B"><span class="toc-text">使用泛型注意哪些</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E6%B3%9B%E5%9E%8B%EF%BC%8C%E4%B8%8D%E8%A6%81%E4%BD%BF%E7%94%A8%E5%8E%9F%E7%94%9F%E7%B1%BB%E5%9E%8B%EF%BC%88raw-type%EF%BC%89"><span class="toc-text">使用泛型，不要使用原生类型（raw type）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B6%88%E9%99%A4%E9%9D%9E%E5%8F%97%E6%A3%80%E8%AD%A6%E5%91%8A"><span class="toc-text">消除非受检警告</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%88%97%E8%A1%A8%E4%BC%98%E5%85%88%E4%BA%8E%E6%95%B0%E7%BB%84"><span class="toc-text">使用列表优先于数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E6%B3%9B%E5%9E%8B"><span class="toc-text">优先考虑泛型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E8%80%83%E8%99%91%E6%B3%9B%E5%9E%8B%E6%96%B9%E6%B3%95"><span class="toc-text">优先考虑泛型方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A9%E7%94%A8%E6%9C%89%E9%99%90%E5%88%B6%E9%80%9A%E9%85%8D%E7%AC%A6%E6%9D%A5%E6%8F%90%E5%8D%87-API-%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7"><span class="toc-text">利用有限制通配符来提升 API 的灵活性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%87%A0%E4%B8%AA%E5%88%86%E4%BA%AB%E4%BC%9A%E9%97%AE%E9%A2%98"><span class="toc-text">几个分享会问题</span></a></li></ol>  
+    </div>  
+  </div>  
+  
+
+
+  <div class="post-content">
+    
+    <blockquote>
 <p>Before generics, you had to cast every object you read from a collection.<br>If someone accidentally inserted an object of the wrong type, casts could fail at runtime.<br>With generics, you tell the compiler what types of objects are permitted in each collection.<br>The compiler inserts casts for you automatically and tells you at compile time if you try to insert an object of the wrong type.<br>This results in programs that are both safer and clearer, but these benefits come with complications.<br>In release 1.5, generics were added to Java.</p>
 </blockquote>
 <p>原本以为是一个很简单的东西，后来研究了发现，其实还是有不少知识可以学习。</p>
@@ -207,100 +325,230 @@
 <p>类型安全的异构容器</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Favorites</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Map&lt;Class&lt;?&gt;, Object&gt; map = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;Class&lt;?&gt;, Object&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; T <span class="title function_">get</span><span class="params">(Class&lt;T&gt; clazz)</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> clazz.cast(map.get(clazz));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> &lt;T&gt; <span class="keyword">void</span> <span class="title function_">put</span><span class="params">(Class&lt;T&gt; clazz, T t)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (clazz == <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">IllegalArgumentException</span>(<span class="string">&quot;clazz should not be null&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        map.put(clazz, t);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">Favorites</span> <span class="variable">favorites</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Favorites</span>();</span><br><span class="line">        favorites.put(String.class, <span class="string">&quot;String value&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 局限性1</span></span><br><span class="line">        <span class="type">Class</span> <span class="variable">clazz</span> <span class="operator">=</span> getStringClass();</span><br><span class="line">        favorites.put(clazz, <span class="number">2</span>);</span><br><span class="line">        favorites.put(clazz, <span class="keyword">new</span> <span class="title class_">Object</span>());</span><br><span class="line">        <span class="comment">// 局限性2</span></span><br><span class="line">        <span class="comment">// error</span></span><br><span class="line">        <span class="comment">// favorites.put(List&lt;String&gt;.class, new ArrayList&lt;String&gt;());</span></span><br><span class="line">        favorites.put(List.class, <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;String&gt;());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Class <span class="title function_">getStringClass</span><span class="params">()</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> String.class;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-      </div>
-      <div class="post-copyright">
-    <p class="copyright-item">
-      <span>Author: </span>
-      <a href="https://notes.yaohwu.xyz">yaohwu</a>
-    </p>
-    <p class="copyright-item">
-      <span>Link: </span>
-      <a href="https://notes.yaohwu.xyz/2019/08/14/how-to-use-java-generic/">https://notes.yaohwu.xyz/2019/08/14/how-to-use-java-generic/</a>
-    </p>
-    <p class="copyright-item">
-      <span>License: </span><a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
-    </p>
+    
   </div>
-      <footer class="post-footer">
-        <div class="post-tags">
-            <a href="/tags/generic/">generic</a>
-            <a href="/tags/java-basic/">java-basic</a>
-            </div>
-        
-        <nav class="post-nav"><a class="prev" href="/2019/09/25/software-design/">
-        <i class="iconfont icon-left"></i>
-        <span class="prev-text nav-default">设计软件的思想和方式</span>
-        <span class="prev-text nav-mobile">Prev</span>
-      </a>
-    <a class="next" href="/2019/03/10/mock-test-2-easymock-powermock/">
-        <span class="next-text nav-default">mock-test 2 EasyMock & PowerMock</span>
-        <span class="prev-text nav-mobile">Next</span>
-        <i class="iconfont icon-right"></i>
-      </a>
-    </nav></footer>
-    </article></div><div class="comments" id="comments"><div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
-    </div></div>
-      </main>
 
-      <footer id="footer" class="footer"><div class="social-links"><a href="mailto:yaohwu@163.com" class="iconfont icon-email" title="email"></a>
-        <a target="_blank" rel="noopener" href="https://twitter.com/yaohwu" class="iconfont icon-twitter" title="twitter"></a>
-        <a target="_blank" rel="noopener" href="https://github.com/yaohwu" class="iconfont icon-github" title="github"></a>
-        <a target="_blank" rel="noopener" href="https://weibo.com/500856779" class="iconfont icon-weibo" title="weibo"></a>
-        <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
-    </div><div class="copyright">
+  
+  <!-- Post Copyright -->
+
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span>Author: </span>
+    <a href="https://notes.yaohwu.xyz">yaohwu</a>
+  </p>
+  <p class="copyright-item">
+    <span>Link: </span>
+    <a href="https://notes.yaohwu.xyz/2019/08/14/how-to-use-java-generic/">https://notes.yaohwu.xyz/2019/08/14/how-to-use-java-generic/</a>
+  </p>
+  <p class="copyright-item">
+    <span>License: </span>
+    
+    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+  </p>
+</div>
+
+    
+
+  
+
+  
+  <footer class="post-footer">
+    
+    <div class="post-tags">
+      
+      <a href="/tags/generic/">generic</a>
+      
+      <a href="/tags/java-basic/">java-basic</a>
+      
+    </div>
+    
+      
+  <nav class="post-nav">  
+      
+      <a class="prev" href="/2019/09/25/software-design/">  
+        <i class="iconfont icon-left"></i>  
+        <span class="prev-text nav-default">设计软件的思想和方式</span>  
+        <span class="prev-text nav-mobile">Prev</span>  
+      </a>  
+      
+      
+      <a class="next" href="/2019/03/10/mock-test-2-easymock-powermock/">  
+        <span class="next-text nav-default">mock-test 2 EasyMock & PowerMock</span>  
+        <span class="prev-text nav-mobile">Next</span>  
+        <i class="iconfont icon-right"></i>  
+      </a>  
+      
+  </nav>  
+  
+
+  </footer>
+  
+
+</article>
+        </div>
+          
+  <div class="comments" id="comments">  
+      
+      <div id="disqus_thread">  
+        <noscript>  
+          Please enable JavaScript to view the  
+          <a target="_blank" rel="noopener" href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>  
+        </noscript>  
+      </div>  
+      
+  </div>  
+  
+
+      </div>
+    </main>
+    <footer id="footer" class="footer">
+      <!-- Social Links -->
+
+<div class="social-links">
+  
+  
+  
+  
+  <a href="mailto:yaohwu@163.com" class="iconfont icon-email" title="email"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://twitter.com/yaohwu" class="iconfont icon-twitter" title="twitter"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://github.com/yaohwu" class="iconfont icon-github" title="github"></a>
+  
+  
+  
+  
+  
+  
+  <a target="_blank" rel="noopener" href="https://weibo.com/500856779" class="iconfont icon-weibo" title="weibo"></a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+  <a href="/atom.xml" class="iconfont icon-rss" title="rss"></a>
+  
+</div>
+
+
+<div class="copyright">
   <span class="power-by">
     Powered by <a class="hexo-link" target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>
   </span>
-  <span class="division">|</span>
-  <span class="theme-info">
-    Theme - 
-    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+    <span class="division">|</span>
+    <span class="theme-info">
+    Theme -
+    <a class="theme-link" target="_blank" rel="noopener" href="https://github.com/yaohwu/hexo-theme-even">Even</a>
   </span>
 
-  <span class="copyright-year">&copy;2015 - 2023<span class="heart">
+    <span class="copyright-year">
+    <span>
+        
+        &copy;
+        
+            2015 - 2023        
+    </span>
+
+    <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
-    <span class="author">yaohwu</span>
-  </span>
-</div>
-</footer>
 
-      <div class="back-to-top" id="back-to-top">
-        <i class="iconfont icon-up"></i>
-      </div>
-    </div><script type="text/javascript">
-    var disqus_config = function () {
-        this.page.url = 'https://notes.yaohwu.xyz/2019/08/14/how-to-use-java-generic/';
-        this.page.identifier = '2019/08/14/how-to-use-java-generic/';
-        this.page.title = '泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性';
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
+    <span class="author"><a class="theme-link" target="_blank" rel="noopener" href="https://github.com/yaohwu/">yaohwu</a></span>
+  </span>
+
+    <span id="beian">
+  </span>
+
+</div>
+    </footer>
+    <div class="back-to-top" id="back-to-top"> <i class="iconfont icon-up"></i> </div>
+  </div>
+    
+  
+<script type="text/javascript">
+  var disqus_config = function() {
+    this.page.url = 'https://notes.yaohwu.xyz/2019/08/14/how-to-use-java-generic/';
+    this.page.identifier = '2019/08/14/how-to-use-java-generic/';
+    this.page.title = '泛型（Generic）-泛型怎么用，来大幅提高代码可读性和易用性';
+  };
+  (function() {
+    var d = document,
+      s = d.createElement('script');
 
     s.src = '//yaohwu-xyz.disqus.com/embed.js';
 
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
-    })();  
-  </script><script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
-  <script type="text/javascript" src="/lib/slideout/slideout.js"></script>
-  <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
-  <!-- Hotjar Tracking Code for https://notes.yaohwu.xyz/ -->
-<script>
-    (function(h,o,t,j,a,r){
-        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-        h._hjSettings={hjid:2982407,hjsv:6};
-        a=o.getElementsByTagName('head')[0];
-        r=o.createElement('script');r.async=1;
-        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-        a.appendChild(r);
-    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  })();
 </script>
-<script type="text/javascript" src="/js/src/even.js?v=2.11.1"></script>
+  
+    
+    
+    
+    
+    
+  
+
+  <script type="text/javascript" src="/lib/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/slideout/slideout.js"></script>
+
+
+    <script type="text/javascript" src="/lib/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<!-- Hotjar Tracking Code for https://notes.yaohwu.xyz/ -->
+<script>
+  (function(h, o, t, j, a, r) {
+    h.hj = h.hj || function() {
+      (h.hj.q = h.hj.q || []).push(arguments)
+    };
+    h._hjSettings = { hjid: 2982407, hjsv: 6 };
+    a = o.getElementsByTagName('head')[0];
+    r = o.createElement('script');
+    r.async = 1;
+    r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+    a.appendChild(r);
+  })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+</script>
+
+  <script type="text/javascript" src="/js/src/even.js?v=2.11.2"></script>
 </body>
+
 </html>

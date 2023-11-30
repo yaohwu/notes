@@ -16,7 +16,7 @@
       display: inline-block;
 
       & + .menu-item {
-        margin-left: $menu-item-margin-left;;
+        margin-left: $menu-item-margin-left;
       }
 
       @include underline-from-center;

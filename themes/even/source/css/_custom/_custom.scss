@@ -4,7 +4,7 @@
 // You can override the variables in _variables.scss to customize the style
 // for theme grieve grey
 @mixin theme-html() {
-  @if $theme-color-config=='grieve grey' {
+  @if $theme-color-config== 'grieve grey' {
     html {
       -webkit-filter: grayscale(95%);
       -webkit-filter: grayscale(0.95);

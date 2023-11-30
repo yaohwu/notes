@@ -18,10 +18,10 @@ rss: default
 # ===========================================
 menu:
   Home: /
-  # Archives: /archives/
-  # Tags: /tags/
-  # Categories: /categories/
-  # About: /about/
+  Archives: /archives/
+  Tags: /tags/
+  Categories: /categories/
+  About: /about/
 
 # ===========================================
 # Theme Settings
@@ -38,7 +38,7 @@ toc: true
 fancybox: true
 
 # LaTeX support (via MathJax)
-latex: false
+latex: true
 
 copyright:
   enable: true
@@ -55,14 +55,14 @@ reward:
 # Social links Settings
 # ===========================================
 social:
-  email: your@email.com
+  email: yaohwu@163.com
   stack-overflow:
-  twitter:
+  twitter: https://twitter.com/yaohwu
   facebook:
   linkedin:
   google:
-  github: https://github.com/ahonn
-  weibo:
+  github: https://github.com/yaohwu
+  weibo: https://weibo.com/500856779
   zhihu:
   douban:
   pocket:
@@ -126,7 +126,7 @@ gitalk:
 utterances:
   enable: false
   repo: owner/repo # Repository
-  issueTerm: title  # Blog post ↔️ issue mapping: pathname | url | title | og:title
+  issueTerm: title # Blog post ↔️ issue mapping: pathname | url | title | og:title
   theme: github-light # Theme: github-light | github-dark | github-dark-orange | icy-dark | dark-blue | photon-dark
   label: utterances # Issue label
 

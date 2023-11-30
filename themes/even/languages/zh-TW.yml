@@ -15,7 +15,7 @@ posts:
   prev_post: 上一篇
   next_post: 下一篇
   toc: 文章目錄
-  readmore: 閱讀更多
+  read_more: 閱讀更多
   visits: '閱讀次數'
   reward: '讚賞支持'
 

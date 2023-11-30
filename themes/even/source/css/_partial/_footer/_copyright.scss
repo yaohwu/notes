@@ -18,6 +18,36 @@
 
     .heart {
       font-size: 14px;
+      color: #b71c1b;
+      display: inline-block;
+      animation: beating 1s infinite;
+      animation-timing-function: ease-out;
+    }
+
+    @keyframes beating {
+      0% {
+        transform: scale(1);
+      }
+
+      20% {
+        transform: scale(1.6);
+      }
+
+      30% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.6);
+      }
+
+      70% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
     }
   }
 }

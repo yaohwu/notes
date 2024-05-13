@@ -1492,6 +1492,10 @@ h6 {
   content: "\e602";
 }
 
+.icon-bwh:before {
+  content: "Ɓ";
+}
+
 .icon-stack-overflow:before {
   content: "\e603";
   font-size: 0.85em;

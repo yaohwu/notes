@@ -6,7 +6,7 @@
   <link href="https://notes.yaohwu.xyz/atom.xml" rel="self"/>
   
   <link href="https://notes.yaohwu.xyz/"/>
-  <updated>2023-04-11T01:12:38.518Z</updated>
+  <updated>2024-05-19T10:30:50.733Z</updated>
   <id>https://notes.yaohwu.xyz/</id>
   
   <author>
@@ -17,18 +17,20 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>幕布的读书笔记</title>
-    <link href="https://notes.yaohwu.xyz/2023/04/10/read-list-in-mubu-app/"/>
-    <id>https://notes.yaohwu.xyz/2023/04/10/read-list-in-mubu-app/</id>
-    <published>2023-04-10T11:23:02.000Z</published>
-    <updated>2023-04-11T01:12:38.518Z</updated>
+    <title>幕布读书笔记笔记</title>
+    <link href="https://notes.yaohwu.xyz/2024/05/19/reads/"/>
+    <id>https://notes.yaohwu.xyz/2024/05/19/reads/</id>
+    <published>2024-05-19T09:05:48.000Z</published>
+    <updated>2024-05-19T10:30:50.733Z</updated>
     
-    <content type="html"><![CDATA[<p>整理并链接一下自己在幕布的一些读书笔记。</p><span id="more"></span><h2 id="架构学习"><a href="#架构学习" class="headerlink" title="架构学习"></a>架构学习</h2><h3 id="数据系统"><a href="#数据系统" class="headerlink" title="数据系统"></a>数据系统</h3><h2 id="管理"><a href="#管理" class="headerlink" title="管理"></a>管理</h2><p>高绩效教练</p>]]></content>
-    
-    
-    <summary type="html">&lt;p&gt;整理并链接一下自己在幕布的一些读书笔记。&lt;/p&gt;</summary>
+    <content type="html"><![CDATA[<p>使用幕布记录的读书笔记</p><span id="more"></span><table><thead><tr><th align="center">标题</th><th align="center">笔记地址</th><th align="center">进度</th><th align="center">原始内容</th></tr></thead><tbody><tr><td align="center">《亲密关系三十讲》笔记</td><td align="center"><a href="https://www.mubu.com/doc/5kP0RnKbg0Y">亲密关系三十讲</a></td><td align="center">6&#x2F;31</td><td align="center"><a href="https://m.igetget.com/share/course/pay/detail?id=wpAkQqxR0EoV7OQsBGVgnMzdLBlmar">陈海贤·亲密关系30讲</a></td></tr><tr><td align="center">《梁宁产品三十讲》笔记</td><td align="center"><a href="https://www.mubu.com/doc/47GoX0foLEY">笔记地址</a></td><td align="center">5&#x2F;7</td><td align="center">–</td></tr><tr><td align="center">新任管理者:一线员工到主管-学习</td><td align="center"><a href="https://www.mubu.com/doc/35VA5tn9CEY">笔记地址</a></td><td align="center">1&#x2F;1</td><td align="center">–</td></tr><tr><td align="center">《ClickHouse Principle and Practice》笔记</td><td align="center"><a href="https://www.mubu.com/doc/4OYBZWqMQ8Y">笔记地址</a></td><td align="center">1&#x2F;5</td><td align="center">–</td></tr><tr><td align="center">How Prometheus Store the Data</td><td align="center"><a href="https://www.mubu.com/doc/2CsWtcrN4Is">笔记地址</a></td><td align="center">1&#x2F;1</td><td align="center">–</td></tr><tr><td align="center">DDIA</td><td align="center"><a href="https://www.mubu.com/doc/3irolRwGW9c">笔记地址</a></td><td align="center">3&#x2F;14</td><td align="center">–</td></tr></tbody></table>]]></content>
     
     
+    <summary type="html">&lt;p&gt;使用幕布记录的读书笔记&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="read" scheme="https://notes.yaohwu.xyz/categories/read/"/>
     
     
     <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
@@ -99,7 +101,7 @@
     <link href="https://notes.yaohwu.xyz/2022/01/12/how-to-make-a-decision/"/>
     <id>https://notes.yaohwu.xyz/2022/01/12/how-to-make-a-decision/</id>
     <published>2022-01-12T11:05:48.000Z</published>
-    <updated>2023-04-10T12:20:02.455Z</updated>
+    <updated>2024-05-19T09:16:14.270Z</updated>
     
     <content type="html"><![CDATA[<p>之前开会讨论，遇到一个需要决策的问题，有同事在回答问题的基础上，比较详细的给出了自己的思考过程。觉得很有意思。我之前的意识层面，也只是认识到决策时对成本和价值的考量，随便找一本书读一读，再延伸思考一下。</p><span id="more"></span><p>书籍信息</p><blockquote><p>决策思维:人人必备的决策口袋书:升级典藏版&#x2F;王嘉陵著.—北京: 东方出版社，2018.11</p></blockquote><h2 id="决策和决定"><a href="#决策和决定" class="headerlink" title="决策和决定"></a>决策和决定</h2><blockquote><p>做出正确的决策就是要有效地分配有限的资源以达到目标。</p></blockquote><p>比我之前的理解更完备。成本–<code>有限的资源</code>，价值–<code>目标</code>，过程中还要进行<code>有效地分配</code>。</p><p>另外一个点，就是要严谨，要认清楚一些概念。这一点，在个人思考的过程中可能会变得愈发松散，而以文字的形式输出的过程中，却需要更加的严谨。比如，粗略的认知下，决策就是我认为的，成本和价值的平衡。但是决策其实更多的还是一个过程，这个过程要实现有效地分配，是要去实现平衡。</p><blockquote><p>制定了一个系统化的方案，GPA。</p><ul><li>G (Goal) 目标：确立一个明确、共享的目标；</li><li>P (Priority) 优先级：明确不同任务的轻重缓急;</li><li>A (Alternatives) 可选方案：制作许多可选方案，选用最好的方案去达到目标。</li></ul></blockquote><p>这三个我目前最擅长的，就是 A，执行可选的方案，选用其中最好的方案去达成目标。针对目标和优先级，最不擅长，比如说每年年初的 OKR 讨论和个人事务的四象限管理中。</p><h2 id="决策的陷阱"><a href="#决策的陷阱" class="headerlink" title="决策的陷阱"></a>决策的陷阱</h2><h3 id="生活中的陷阱"><a href="#生活中的陷阱" class="headerlink" title="生活中的陷阱"></a>生活中的陷阱</h3><ul><li>锚的陷阱，先入为主；<ul><li>其实有过这样的担心，比如在讨论埋点验收平台时，前面主要就只是我的想法，难免会在大家潜意识里加一个限定框，也就是一个锚；</li></ul></li><li>固守成规，不愿意创新和改变；</li><li>沉没成本陷阱，顾惜已支付的成本；<ul><li>比如做问题库决策的时候也遇到了这样的陷阱，20年都干大半年了没有什么有效的成果；</li></ul></li><li>肯定证据陷阱，在陷入其他陷阱时，不断的收集证据完成自我倾向的证明；</li><li>框架陷阱，立即投入而不是先确定框架合理性，和先入为主类似，容易先限定在框架内；</li><li>估计和预测的各种陷阱，过于自信、过于审慎、追忆陷阱；<ul><li>对未来决策，依托过去的经验和数据，过去成功，那么可能过于自信；过去失败，那么可能过于审慎；</li><li>追忆印象深刻的大事件，容易以偏概全；</li></ul></li></ul><h2 id="管理中的陷阱"><a href="#管理中的陷阱" class="headerlink" title="管理中的陷阱"></a>管理中的陷阱</h2><ul><li>问题陷阱，以问题为起点，让问题推动决策，以解决问题为目标；<ul><li>粗看好像没什么问题，但是决定的起点必须是想要达成的目标，而非眼前的问题，以问题问起点，就输在了起跑线上；以目标为起点去思考才可能达成目标；</li></ul></li><li>机会陷阱，以机会为起点，只有一个方案时，就做是非题，没有其他的选择时就做决策；<ul><li>抓住机会时达成目标的手段而非目标本身；</li><li>以机会为起点，是常见的“手段目标化的陷阱”</li><li>没有选择就不做决定，寻找更多的选择，寻找更多的方案；</li><li>好的方案才有好的决定；</li></ul></li><li>希望在审批中提升决策的品质；<ul><li>官僚化；妄图提升品质，实则层层加码；</li><li>决策内容高质量，决策过程高质量；</li></ul></li></ul><h2 id="todo-more"><a href="#todo-more" class="headerlink" title="todo more"></a>todo more</h2>]]></content>
     
@@ -107,6 +109,8 @@
     <summary type="html">&lt;p&gt;之前开会讨论，遇到一个需要决策的问题，有同事在回答问题的基础上，比较详细的给出了自己的思考过程。觉得很有意思。我之前的意识层面，也只是认识到决策时对成本和价值的考量，随便找一本书读一读，再延伸思考一下。&lt;/p&gt;</summary>
     
     
+    
+    <category term="read" scheme="https://notes.yaohwu.xyz/categories/read/"/>
     
     
     <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
@@ -128,9 +132,9 @@
     
     
     
-    <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
-    
     <category term="reproduced" scheme="https://notes.yaohwu.xyz/tags/reproduced/"/>
+    
+    <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
     
   </entry>
   
@@ -178,14 +182,16 @@
     <link href="https://notes.yaohwu.xyz/2021/11/21/principles-life-and-work-reading-notes/"/>
     <id>https://notes.yaohwu.xyz/2021/11/21/principles-life-and-work-reading-notes/</id>
     <published>2021-11-21T13:19:53.000Z</published>
-    <updated>2021-11-28T13:53:14.574Z</updated>
+    <updated>2024-05-19T08:28:59.664Z</updated>
     
-    <content type="html"><![CDATA[<p>这是一份从微信读书导出的关于《原则：生活与工作》的读书笔记，还有待再整理。</p><span id="more"></span><p>◆ 2 跨越门槛 （1967—1979年）</p><p>认清相关事情的发展之后，一切看起来就符合逻辑了。</p><blockquote><blockquote><p>符合逻辑</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>几乎所有事情都以符合逻辑的因果关系不断发生过</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>准确地判断出哪些事情正在重演，并理解背后的因果关系</p></blockquote></blockquote><p>skr</p><blockquote><blockquote><p>来自西班牙，名叫芭芭拉</p></blockquote></blockquote><p>了解你的领域</p><blockquote><blockquote><p>我了解几乎一切能想到的、与这两个市场有关的事情</p></blockquote></blockquote><p>自信点把像去掉</p><blockquote><blockquote><p>整个过程像是一部有着符合逻辑的因果关系的美丽机器。通过理解这些关系，我就能得出用来建立模型的决策规则（或者说原则）。</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>把复杂的系统设想为机器，发现其内部的因果关系，把处理这些因果关系的原则写下来，将其输入计算机，从而让计算机为我“决策”，所有这些后来都成了标准做法。</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>总是存在会给你造成重大损失的风险</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>假设自己没有看到全部</p></blockquote></blockquote><p>很强</p><blockquote><blockquote><p>我给儿子起名“德温”，而“德温”是人类所知的最早的牛种之一，也是最早输入美国的牛种之一，并以繁殖率高著称</p></blockquote></blockquote><p>◆ 3 我的低谷 （1979—1982年）</p><p>&lt;&gt;</p><blockquote><blockquote><p>在每个投资者的职业生涯中，都有焦虑的时刻，你对未来的期待与真正发生的情况不符，你不知道自己面临的是巨大的机会还是灾难性的错误。</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>时机就是一切</p></blockquote></blockquote><p>冷静，相信自己总有还未考虑到的场景</p><blockquote><blockquote><p>我离谱地过度自信，并放纵自己被情绪左右</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>研究历史的价值</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>总结出经过仔细验证的永恒和普适的决策原则</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>时机</p></blockquote></blockquote><p>一个开放成功的团队氛围</p><blockquote><blockquote><p>一个创意择优的机构，鼓励经过深思熟虑的意见不一致，根据不同人的相对长处分析和权衡他们的观点。</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>使人们相互对立的观点公开化，并对其进行分析，让我对人们的思考方式有了很多的了解。我逐渐发现，人们的最大缺点与其最大优点互为正反面。例如，一些人倾向于过度冒险，而其他人的风险规避性过强；一些人过度关注细节，而其他人的思维过于宏观。大多数人都是在某个方面过度，而在另一方面不足。通常，当我们遵循自己的自然秉性做事时，我们可能考虑不到自身的弱点，这将导致我们走向失败。最重要的是失败之后怎么做。成功的人改变他们的做法，这使他们能够继续利用自己的优势，弥补自身的不足，而不成功的人不会这样做。在后文中，我将描述改变的具体策略，但在这里需要注意的重要一点是，只有当你能承认甚至接受自身的弱点时，你才能做出对自身有益的改变。</p></blockquote></blockquote><p>◆ 4 我的试炼之路 （1983—1994年）</p><blockquote><blockquote><p>靠水晶球谋生的人注定要吃碎在地上的玻璃</p></blockquote></blockquote><p>没有快速验证的环境就从历史数据中想办法快速验证，现在的ML就是在这样的大背景下开展的。</p><blockquote><blockquote><p>如果我把这些标准转化成公式（现在更时髦的叫法是“算法”），然后用这些公式计算历史数据，我就能检测，假如把我的这些公式运用到历史交易中，效果会怎么样</p></blockquote></blockquote><p>人类早期的ML模型训练和参数优化</p><blockquote><blockquote><p>我与计算机互相帮助</p></blockquote></blockquote><p>德州朴克每把都看牌，但是只有自己赢面大的时候才额外加注（手动狗头</p><blockquote><blockquote><p>只对你有高度信心的投资对象进行冒险押注，并对这些对象进行充分的分散投资</p></blockquote></blockquote><p>很多人看到的是成熟和选择的重要性，但是这句话的前提是勤奋和有创造性的工作。</p><blockquote><blockquote><p>我了解到，如果你以勤奋和有创造性的方式工作，你几乎可以得到你想要的任何东西，但你不可能同时得到所有东西。成熟意味着你可以放弃一些好的选择，从而追求更好的选择。</p></blockquote></blockquote><p>苏州的丝巾吗？（</p><blockquote><blockquote><p>我还记得有一次，当时只有10岁左右的大儿子德温，在中国以每条1美元的价格购买了许多黑丝巾，然后在圣诞节前夕在一个购物中心以每条20美元的价格卖出。这仅仅是展现他商业天赋的最初迹象。</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>有意义的人际关系是指开放诚恳的关系，人们彼此坦诚相待。</p></blockquote></blockquote><p>这是一个独特的思维方式，因为大多数人遇到这种情况想到的是只有加重惩罚才会避免出现更多的问题。更重的惩罚意味着更少的错误，当错误不可避免，那么面对错误降低反应才会让错误提前暴露出来。这就是人性。</p><blockquote><blockquote><p>这是一个可怕的、代价高昂的失误，而我不能做出太激烈的反应，比如把罗斯炒了以儆效尤，告诉大家我们不能容忍错误。因为错误总是免不了的，所以这么做只会促使其他人隐藏错误，而这将导致更大、代价更高的错误。</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>管理工具在促使人们采用正确的行为方式方面发挥着重要作用</p></blockquote></blockquote><p>那以如何让其他人能够坦城地讲出各自的相处原则呢？自身坦诚肯定是第一位的。</p><blockquote><blockquote><p>人们应当把各自的相处原则说得极为清楚</p></blockquote></blockquote><p>我的相处原则是什么呢？我其实并不以高标准要求别人，我可以很耐心地和他人摆事实讲道理，但是一旦我发现对方难以认同我表述的观点，不按照我认为的正确的方案行事，而且不能给出我认可的理由或者一个更好的解决方案，那么我就会逐渐失去耐心，开始发火。</p><blockquote><blockquote><p>各自的相处原则</p></blockquote></blockquote><p>可以尝试在团队内部去做类似的事情</p><blockquote><blockquote><p>我们开始书面记录我们的原则，这种做法持续了几十年，最终形成了“工作原则”。这些原则既是我们一致同意的相处规范，也是我对我们如何处理不断出现的新情况的思考。因为大多数情况都是以略微不同的形式不断出现的，所以这些原则被持续改进</p></blockquote></blockquote><p>每个人对待共同的事情都要做到坦诚</p><blockquote><blockquote><p>把我们的真实想法摆在桌面上</p></blockquote></blockquote><p>要经过有效的沟通。</p><blockquote><blockquote><p>存在经过深思熟虑的分歧，但人们愿意在相互了解的过程中更改观点；</p></blockquote></blockquote><p>还是那句话：利用欲望让自己努力，控制欲望让自己快乐。</p><blockquote><blockquote><p>每个人的大脑都有两部分——层次较高的逻辑部分与层次较低的情绪部分。我称此为“两个你”。它们会争夺对于一个人的控制权。管理这一冲突的方式，是我们行为最重要的驱动因素。</p></blockquote></blockquote><p>&lt;&gt;</p><blockquote><blockquote><p>大脑的逻辑部分可以轻易理解了解自身弱点是一件好事（因为这是克服弱点的第一步），但大脑的情绪部分通常讨厌这么做。</p></blockquote></blockquote><p>◆ 5 终极恩惠 （1995—2010年）</p><p>为啥要强调年轻的程序员（</p><blockquote><blockquote><p>随着系统里的决策规则和数据变得越来越复杂，我们聘用了年轻的程序员，他们能更好地把指示转化为代码，</p></blockquote></blockquote><p>一个足够优秀的产品的起源可能只是一个不经意的想法</p><blockquote><blockquote><p>到20世纪90年代中期，我有了足够的钱为我的家庭设立一个信托，所以我开始思考，为了将财富传承给多代人，最好的资产配置组合应当是什么样子。</p></blockquote></blockquote>]]></content>
+    <content type="html"><![CDATA[<p>这是一份从微信读书导出的关于《原则：生活与工作》的读书笔记，还有待再整理。</p><span id="more"></span><p>◆ 2 跨越门槛 （1967—1979年）</p><p>认清相关事情的发展之后，一切看起来就符合逻辑了。</p><blockquote><blockquote><p>符合逻辑</p></blockquote></blockquote><blockquote><blockquote><p>几乎所有事情都以符合逻辑的因果关系不断发生过</p></blockquote></blockquote><blockquote><blockquote><p>准确地判断出哪些事情正在重演，并理解背后的因果关系</p></blockquote></blockquote><p>skr</p><blockquote><blockquote><p>来自西班牙，名叫芭芭拉</p></blockquote></blockquote><p>了解你的领域</p><blockquote><blockquote><p>我了解几乎一切能想到的、与这两个市场有关的事情</p></blockquote></blockquote><p>自信点把像去掉</p><blockquote><blockquote><p>整个过程像是一部有着符合逻辑的因果关系的美丽机器。通过理解这些关系，我就能得出用来建立模型的决策规则（或者说原则）。</p></blockquote></blockquote><blockquote><blockquote><p>把复杂的系统设想为机器，发现其内部的因果关系，把处理这些因果关系的原则写下来，将其输入计算机，从而让计算机为我“决策”，所有这些后来都成了标准做法。</p></blockquote></blockquote><blockquote><blockquote><p>总是存在会给你造成重大损失的风险</p></blockquote></blockquote><blockquote><blockquote><p>假设自己没有看到全部</p></blockquote></blockquote><p>很强</p><blockquote><blockquote><p>我给儿子起名“德温”，而“德温”是人类所知的最早的牛种之一，也是最早输入美国的牛种之一，并以繁殖率高著称</p></blockquote></blockquote><p>◆ 3 我的低谷 （1979—1982年）</p><blockquote><blockquote><p>在每个投资者的职业生涯中，都有焦虑的时刻，你对未来的期待与真正发生的情况不符，你不知道自己面临的是巨大的机会还是灾难性的错误。</p></blockquote></blockquote><blockquote><blockquote><p>时机就是一切</p></blockquote></blockquote><p>冷静，相信自己总有还未考虑到的场景</p><blockquote><blockquote><p>我离谱地过度自信，并放纵自己被情绪左右</p></blockquote></blockquote><blockquote><blockquote><p>研究历史的价值</p></blockquote></blockquote><blockquote><blockquote><p>总结出经过仔细验证的永恒和普适的决策原则</p></blockquote></blockquote><blockquote><blockquote><p>时机</p></blockquote></blockquote><p>一个开放成功的团队氛围</p><blockquote><blockquote><p>一个创意择优的机构，鼓励经过深思熟虑的意见不一致，根据不同人的相对长处分析和权衡他们的观点。</p></blockquote></blockquote><blockquote><blockquote><p>使人们相互对立的观点公开化，并对其进行分析，让我对人们的思考方式有了很多的了解。我逐渐发现，人们的最大缺点与其最大优点互为正反面。例如，一些人倾向于过度冒险，而其他人的风险规避性过强；一些人过度关注细节，而其他人的思维过于宏观。大多数人都是在某个方面过度，而在另一方面不足。通常，当我们遵循自己的自然秉性做事时，我们可能考虑不到自身的弱点，这将导致我们走向失败。最重要的是失败之后怎么做。成功的人改变他们的做法，这使他们能够继续利用自己的优势，弥补自身的不足，而不成功的人不会这样做。在后文中，我将描述改变的具体策略，但在这里需要注意的重要一点是，只有当你能承认甚至接受自身的弱点时，你才能做出对自身有益的改变。</p></blockquote></blockquote><p>◆ 4 我的试炼之路 （1983—1994年）</p><blockquote><blockquote><p>靠水晶球谋生的人注定要吃碎在地上的玻璃</p></blockquote></blockquote><p>没有快速验证的环境就从历史数据中想办法快速验证，现在的ML就是在这样的大背景下开展的。</p><blockquote><blockquote><p>如果我把这些标准转化成公式（现在更时髦的叫法是“算法”），然后用这些公式计算历史数据，我就能检测，假如把我的这些公式运用到历史交易中，效果会怎么样</p></blockquote></blockquote><p>人类早期的ML模型训练和参数优化</p><blockquote><blockquote><p>我与计算机互相帮助</p></blockquote></blockquote><p>德州朴克每把都看牌，但是只有自己赢面大的时候才额外加注（手动狗头</p><blockquote><blockquote><p>只对你有高度信心的投资对象进行冒险押注，并对这些对象进行充分的分散投资</p></blockquote></blockquote><p>很多人看到的是成熟和选择的重要性，但是这句话的前提是勤奋和有创造性的工作。</p><blockquote><blockquote><p>我了解到，如果你以勤奋和有创造性的方式工作，你几乎可以得到你想要的任何东西，但你不可能同时得到所有东西。成熟意味着你可以放弃一些好的选择，从而追求更好的选择。</p></blockquote></blockquote><p>苏州的丝巾吗？（</p><blockquote><blockquote><p>我还记得有一次，当时只有10岁左右的大儿子德温，在中国以每条1美元的价格购买了许多黑丝巾，然后在圣诞节前夕在一个购物中心以每条20美元的价格卖出。这仅仅是展现他商业天赋的最初迹象。</p></blockquote></blockquote><blockquote><blockquote><p>有意义的人际关系是指开放诚恳的关系，人们彼此坦诚相待。</p></blockquote></blockquote><p>这是一个独特的思维方式，因为大多数人遇到这种情况想到的是只有加重惩罚才会避免出现更多的问题。更重的惩罚意味着更少的错误，当错误不可避免，那么面对错误降低反应才会让错误提前暴露出来。这就是人性。</p><blockquote><blockquote><p>这是一个可怕的、代价高昂的失误，而我不能做出太激烈的反应，比如把罗斯炒了以儆效尤，告诉大家我们不能容忍错误。因为错误总是免不了的，所以这么做只会促使其他人隐藏错误，而这将导致更大、代价更高的错误。</p></blockquote></blockquote><blockquote><blockquote><p>管理工具在促使人们采用正确的行为方式方面发挥着重要作用</p></blockquote></blockquote><p>那以如何让其他人能够坦城地讲出各自的相处原则呢？自身坦诚肯定是第一位的。</p><blockquote><blockquote><p>人们应当把各自的相处原则说得极为清楚</p></blockquote></blockquote><p>我的相处原则是什么呢？我其实并不以高标准要求别人，我可以很耐心地和他人摆事实讲道理，但是一旦我发现对方难以认同我表述的观点，不按照我认为的正确的方案行事，而且不能给出我认可的理由或者一个更好的解决方案，那么我就会逐渐失去耐心，开始发火。</p><blockquote><blockquote><p>各自的相处原则</p></blockquote></blockquote><p>可以尝试在团队内部去做类似的事情</p><blockquote><blockquote><p>我们开始书面记录我们的原则，这种做法持续了几十年，最终形成了“工作原则”。这些原则既是我们一致同意的相处规范，也是我对我们如何处理不断出现的新情况的思考。因为大多数情况都是以略微不同的形式不断出现的，所以这些原则被持续改进</p></blockquote></blockquote><p>每个人对待共同的事情都要做到坦诚</p><blockquote><blockquote><p>把我们的真实想法摆在桌面上</p></blockquote></blockquote><p>要经过有效的沟通。</p><blockquote><blockquote><p>存在经过深思熟虑的分歧，但人们愿意在相互了解的过程中更改观点；</p></blockquote></blockquote><p>还是那句话：利用欲望让自己努力，控制欲望让自己快乐。</p><blockquote><blockquote><p>每个人的大脑都有两部分——层次较高的逻辑部分与层次较低的情绪部分。我称此为“两个你”。它们会争夺对于一个人的控制权。管理这一冲突的方式，是我们行为最重要的驱动因素。</p></blockquote></blockquote><blockquote><blockquote><p>大脑的逻辑部分可以轻易理解了解自身弱点是一件好事（因为这是克服弱点的第一步），但大脑的情绪部分通常讨厌这么做。</p></blockquote></blockquote><p>◆ 5 终极恩惠 （1995—2010年）</p><p>为啥要强调年轻的程序员（</p><blockquote><blockquote><p>随着系统里的决策规则和数据变得越来越复杂，我们聘用了年轻的程序员，他们能更好地把指示转化为代码，</p></blockquote></blockquote><p>一个足够优秀的产品的起源可能只是一个不经意的想法</p><blockquote><blockquote><p>到20世纪90年代中期，我有了足够的钱为我的家庭设立一个信托，所以我开始思考，为了将财富传承给多代人，最好的资产配置组合应当是什么样子。</p></blockquote></blockquote>]]></content>
     
     
     <summary type="html">&lt;p&gt;这是一份从微信读书导出的关于《原则：生活与工作》的读书笔记，还有待再整理。&lt;/p&gt;</summary>
     
     
+    
+    <category term="read" scheme="https://notes.yaohwu.xyz/categories/read/"/>
     
     
     <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
@@ -306,9 +312,9 @@
     
     
     
-    <category term="generic" scheme="https://notes.yaohwu.xyz/tags/generic/"/>
-    
     <category term="java-basic" scheme="https://notes.yaohwu.xyz/tags/java-basic/"/>
+    
+    <category term="generic" scheme="https://notes.yaohwu.xyz/tags/generic/"/>
     
   </entry>
   

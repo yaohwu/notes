@@ -6,7 +6,7 @@
   <link href="https://notes.yaohwu.xyz/atom.xml" rel="self"/>
   
   <link href="https://notes.yaohwu.xyz/"/>
-  <updated>2024-05-19T10:30:50.733Z</updated>
+  <updated>2024-05-19T10:48:19.945Z</updated>
   <id>https://notes.yaohwu.xyz/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://notes.yaohwu.xyz/2024/05/19/reads/"/>
     <id>https://notes.yaohwu.xyz/2024/05/19/reads/</id>
     <published>2024-05-19T09:05:48.000Z</published>
-    <updated>2024-05-19T10:30:50.733Z</updated>
+    <updated>2024-05-19T10:48:19.945Z</updated>
     
-    <content type="html"><![CDATA[<p>使用幕布记录的读书笔记</p><span id="more"></span><table><thead><tr><th align="center">标题</th><th align="center">笔记地址</th><th align="center">进度</th><th align="center">原始内容</th></tr></thead><tbody><tr><td align="center">《亲密关系三十讲》笔记</td><td align="center"><a href="https://www.mubu.com/doc/5kP0RnKbg0Y">亲密关系三十讲</a></td><td align="center">6&#x2F;31</td><td align="center"><a href="https://m.igetget.com/share/course/pay/detail?id=wpAkQqxR0EoV7OQsBGVgnMzdLBlmar">陈海贤·亲密关系30讲</a></td></tr><tr><td align="center">《梁宁产品三十讲》笔记</td><td align="center"><a href="https://www.mubu.com/doc/47GoX0foLEY">笔记地址</a></td><td align="center">5&#x2F;7</td><td align="center">–</td></tr><tr><td align="center">新任管理者:一线员工到主管-学习</td><td align="center"><a href="https://www.mubu.com/doc/35VA5tn9CEY">笔记地址</a></td><td align="center">1&#x2F;1</td><td align="center">–</td></tr><tr><td align="center">《ClickHouse Principle and Practice》笔记</td><td align="center"><a href="https://www.mubu.com/doc/4OYBZWqMQ8Y">笔记地址</a></td><td align="center">1&#x2F;5</td><td align="center">–</td></tr><tr><td align="center">How Prometheus Store the Data</td><td align="center"><a href="https://www.mubu.com/doc/2CsWtcrN4Is">笔记地址</a></td><td align="center">1&#x2F;1</td><td align="center">–</td></tr><tr><td align="center">DDIA</td><td align="center"><a href="https://www.mubu.com/doc/3irolRwGW9c">笔记地址</a></td><td align="center">3&#x2F;14</td><td align="center">–</td></tr></tbody></table>]]></content>
+    <content type="html"><![CDATA[<p>使用幕布记录的读书笔记</p><span id="more"></span><ol><li><a href="https://yaohwu.xyz/">笔记内容</a> 进度 最近一次阅读的时间</li><li><a href="https://www.mubu.com/doc/5kP0RnKbg0Y">亲密关系三十讲</a> 6&#x2F;31 2024-05-19</li><li><a href="https://www.mubu.com/doc/47GoX0foLEY">梁宁产品三十讲</a> 5&#x2F;7 2023-12-12</li><li><a href="https://www.mubu.com/doc/35VA5tn9CEY">新任管理者:一线员工到主管-学习</a> 1&#x2F;1</li><li><a href="https://www.mubu.com/doc/4OYBZWqMQ8Y">ClickHouse Principle and Practice 笔记</a> 1&#x2F;5</li><li><a href="https://www.mubu.com/doc/2CsWtcrN4Is">How Prometheus Store the Data</a> 1&#x2F;1</li><li><a href="https://www.mubu.com/doc/3irolRwGW9c">DDIA</a> 3&#x2F;14</li></ol>]]></content>
     
     
     <summary type="html">&lt;p&gt;使用幕布记录的读书笔记&lt;/p&gt;</summary>
@@ -132,9 +132,9 @@
     
     
     
-    <category term="reproduced" scheme="https://notes.yaohwu.xyz/tags/reproduced/"/>
-    
     <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
+    
+    <category term="reproduced" scheme="https://notes.yaohwu.xyz/tags/reproduced/"/>
     
   </entry>
   
@@ -312,9 +312,9 @@
     
     
     
-    <category term="java-basic" scheme="https://notes.yaohwu.xyz/tags/java-basic/"/>
-    
     <category term="generic" scheme="https://notes.yaohwu.xyz/tags/generic/"/>
+    
+    <category term="java-basic" scheme="https://notes.yaohwu.xyz/tags/java-basic/"/>
     
   </entry>
   

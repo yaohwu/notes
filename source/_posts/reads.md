@@ -9,14 +9,15 @@ tags: [ read ]
 
 <!-- more -->
 
-|                  标题                   |                   笔记地址                    |  进度  |         原始内容          |
-|:-------------------------------------:|:-----------------------------------------:|:----:|:---------------------:|
-|              《亲密关系三十讲》笔记              |              [亲密关系三十讲][亲密关系]              | 6/31 | [陈海贤·亲密关系30讲][亲密关系原始] |
-|              《梁宁产品三十讲》笔记              |              [笔记地址][梁宁产品三十讲]              | 5/7  |          --           |
-|           新任管理者:一线员工到主管-学习            |         [笔记地址][新任管理者:一线员工到主管-学习]          | 1/1  |          --           |
-| 《ClickHouse Principle and Practice》笔记 | [笔记地址][ClickHouse Principle and Practice] | 1/5  |          --           |  
-|     How Prometheus Store the Data     |   [笔记地址][How Prometheus Store the Data]   | 1/1  |          --           |
-|                 DDIA                  |               [笔记地址][DDIA]                | 3/14 |          --           |
+1. [笔记内容][地址] 进度 最近一次阅读的时间
+2. [亲密关系三十讲][亲密关系] 6/31 2024-05-19
+3. [梁宁产品三十讲][梁宁产品三十讲] 5/7 2023-12-12
+4. [新任管理者:一线员工到主管-学习][新任管理者:一线员工到主管-学习] 1/1
+5. [ClickHouse Principle and Practice 笔记][ClickHouse Principle and Practice] 1/5
+6. [How Prometheus Store the Data][How Prometheus Store the Data] 1/1
+7. [DDIA][DDIA] 3/14
+
+[地址]: https://yaohwu.xyz
 
 [亲密关系原始]: https://m.igetget.com/share/course/pay/detail?id=wpAkQqxR0EoV7OQsBGVgnMzdLBlmar
 

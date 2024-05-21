@@ -132,9 +132,9 @@
     
     
     
-    <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
-    
     <category term="reproduced" scheme="https://notes.yaohwu.xyz/tags/reproduced/"/>
+    
+    <category term="read" scheme="https://notes.yaohwu.xyz/tags/read/"/>
     
   </entry>
   
@@ -312,9 +312,9 @@
     
     
     
-    <category term="generic" scheme="https://notes.yaohwu.xyz/tags/generic/"/>
-    
     <category term="java-basic" scheme="https://notes.yaohwu.xyz/tags/java-basic/"/>
+    
+    <category term="generic" scheme="https://notes.yaohwu.xyz/tags/generic/"/>
     
   </entry>
   
